@@ -16,6 +16,7 @@ import LogoMUI from "/public/images/logos/icon-Material-UI.svg";
 import LogoTailwindcss from "/public/images/logos/icon-tailwindcss.svg";
 import LogoFigma from "/public/images/logos/icon-figma.svg";
 import LogoGit from "/public/images/logos/icon-git.svg";
+import Keystone from "/public/images/logos/icon-keystonejs.svg";
 
 import labLambworks from "/public/images/logos/logo-lablamb.png";
 import YoChatGPT from "/public/images/yogpt.png";
@@ -131,6 +132,11 @@ export const TECHNOLOGIES: TechDetailsType[] = [
     label: "PostgreSQL",
     logo: LogoPostgreSQL,
     url: "https://www.postgresql.org/",
+  },
+  {
+    label: "Keystonejs",
+    logo: Keystone,
+    url: "https://keystonejs.com/",
   },
   {
     label: "MongoDB",

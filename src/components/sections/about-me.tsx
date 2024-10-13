@@ -41,13 +41,13 @@ const AboutMeSection = () => {
             highly performant code matters to me.
           </Typography>
           <Typography>
-            I began my journey as a web developer in 2022, and since then,
+            I began my journey as a web developer in 2021, and since then,
             I&apos;ve continued to grow and evolve as a developer, taking on new
             challenges and learning the latest technologies along the way. Now,
             in my career, 2+ years after starting my development journey,
-            I&apos;m building cutting-edge web applications using modern
-            technologies such as Next.js, TypeScript, MUI, Tailwindcss and much
-            more.
+            I&apos;m building cutting-edge mobile and web applications using
+            modern technologies such as Keystone, TypeScript, Next.js, MUI,
+            Tailwindcss and much more.
           </Typography>
           <Typography>
             I am very much a progressive thinker and enjoy working on products
