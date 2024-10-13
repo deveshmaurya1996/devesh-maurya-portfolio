@@ -31,13 +31,14 @@ import {
   TechDetailsType,
   TestimonialDetails,
 } from "@/lib/types";
-import { url } from "inspector";
 
 export const EXTERNAL_LINKS = {
   GITHUB: "https://github.com/deveshmaurya1996",
   GITHUB_REPO: "https://github.com/deveshmaurya1996/devesh-maurya-portfolio",
   TWITTER: "https://x.com/deveshmaurya3",
 };
+
+const whatsappNumber = "919670551347";
 
 export const NAV_LINKS = [
   {
@@ -70,6 +71,10 @@ export const SOCIAL_LINKS = [
   {
     icon: LucideLinkedin,
     url: "https://www.linkedin.com/in/deveshmaurya1996/",
+  },
+  {
+    icon: "whatsapp",
+    url: `https://wa.me/${whatsappNumber}`,
   },
 ];
 
