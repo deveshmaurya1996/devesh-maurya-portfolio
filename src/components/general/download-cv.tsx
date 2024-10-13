@@ -6,7 +6,7 @@ const DownloadCV = () => {
   return (
     <Button
       onClick={() =>
-        window?.open("/files/DeveshMauryaResume2024.pdf", "_blank")
+        window?.open("/files/DeveshMauryaResume-2024.pdf", "_blank")
       }
     >
       Download Resume
