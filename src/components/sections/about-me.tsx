@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import deveshMaurya from "/public/images/deveshMaurya.png";
+import deveshMaurya from "/public/images/deveshmaurya-fullSize.jpg";
 import Tag from "@/components/data-display/tag";
 import Container from "@/components/layout/container";
 import Typography from "@/components/general/typography";
