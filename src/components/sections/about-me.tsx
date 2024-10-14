@@ -89,8 +89,8 @@ const AboutMeSection = () => {
             </ul>
           </div>
           <Typography>
-            One last thing, I&apos;m available for freelance work, so feel free
-            to reach out and say hello! I promise I don&apos;t bite 😉
+            One last thing, I&apos;m available for part time freelance work, so
+            feel free to reach out and say hello! I promise I don&apos;t bite 😉
           </Typography>
         </div>
       </div>
