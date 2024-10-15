@@ -32,3 +32,55 @@
   --app-gray-900: 249 250 251;
   --app-gray-950: 255 255 255;
 }
+
+@keyframes tilt {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+@keyframes tilt-shake {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(3deg) translateX(-3px);
+  }
+  50% {
+    transform: rotate(-3deg) translateX(3px);
+  }
+  75% {
+    transform: rotate(3deg) translateX(-3px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+@layer utilities {
+  .animate-tilt-shake {
+    animation: tilt-shake 0.5s ease-in-out forwards;
+  }
+}

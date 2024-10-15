@@ -218,6 +218,7 @@ export const PROJECTS: ProjectDetails[] = [
       "Postgres",
       "Socket.io",
       "Twilio",
+      "Agenda",
     ],
     androidLink: "https://play.google.com/store/apps/details?id=com.airhub.app",
     iosLink: "https://apps.apple.com/us/app/airhub/id1661240899",
@@ -249,7 +250,7 @@ export const PROJECTS: ProjectDetails[] = [
     name: "YLHH",
     description:
       "With the aim of bridging the gap between a traditional snack store in Hong Kong and its loyal customer base, our project aims to create a dedicated mobile application that helps close this gap.",
-    url: "https://incentivized.app/",
+    url: "",
     previewImage: YLHH,
     technologies: [
       "React Native",
@@ -257,8 +258,6 @@ export const PROJECTS: ProjectDetails[] = [
       "Typescript",
       "Material UI",
       "GraphQL",
-      "Expo",
-      "React Native",
       "Keystone",
       "Postgres",
     ],

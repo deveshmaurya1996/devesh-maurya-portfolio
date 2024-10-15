@@ -67,14 +67,17 @@ const ProjectDetails = ({
           ))}
         </div>
         <div className="align-center flex gap-2">
-          <Link
-            href={url}
-            noCustomization
-            className="self-start rounded-lg p-1.5 hover:bg-gray-50 [&_svg]:stroke-gray-500"
-            externalLink
-          >
-            <ExternalLink />
-          </Link>
+          {url && (
+            <Link
+              href={url}
+              noCustomization
+              className="self-start rounded-lg p-1.5 hover:bg-gray-50 [&_svg]:stroke-gray-500"
+              externalLink
+            >
+              <ExternalLink />
+            </Link>
+          )}
+
           {androidLink && iosLink && (
             <div className="align-center flex gap-2">
               <Link href={androidLink} externalLink>
