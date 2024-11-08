@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { MapPin } from "lucide-react";
 
-import deveshMaurya from "/public/images/deveshMaurya.png";
+import deveshMaurya from "/public/images/deveshMauryaNew.png";
 import SocialIcons from "@/components/data-display/social-icons";
 import Typography from "@/components/general/typography";
 import Container from "@/components/layout/container";
