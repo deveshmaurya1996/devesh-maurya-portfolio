@@ -25,7 +25,7 @@ import IncentivizED from "/public/images/IncentivizEDNew.png";
 import YLHH from "/public/images/YLHHThumbnail.png";
 import LabLamb from "/public/images/LabLambWorks.png";
 import Meet from "/public/images/meet.jpg";
-
+import Aicade from "/public/images/Aicade.svg";
 import {
   ExperienceDetails,
   ProjectDetails,
@@ -167,12 +167,27 @@ export const TECHNOLOGIES: TechDetailsType[] = [
 
 export const EXPERIENCES: ExperienceDetails[] = [
   {
+    logo: Aicade,
+    logoAlt: "Aicade",
+    company: "Aicade Inc.",
+    position: "Full Stack Developer | Frontend Specialist",
+    startDate: new Date(2024, 11),
+    currentlyWorkHere: true,
+    summary: [
+      "Developed 2D game generation tools using Vite.js, Next.js, Redux, and TanStack Query.",
+      "Integrated AI-powered APIs to enhance game asset recommendations and procedural content generation.",
+      "Designed interactive UI components for game level design and asset customization.",
+      "Optimized performance to ensure a seamless and responsive gaming experience.",
+    ],
+  },
+  {
     logo: labLambworks,
     logoAlt: "LabLamb Works",
     company: "LabLamb Works",
     position: "Full Stack Developer",
     startDate: new Date(2022, 3),
     currentlyWorkHere: false,
+    endDate: new Date(2024, 10),
     summary: [
       "Worked for various clients like Airhub, Education University of Hong Kong.",
       "Worked with a variety of technologies, including React Native, React, Next.js, Gatsby, Typescript, PostgreSQL, Mui, MongoDB and others.",
@@ -181,6 +196,25 @@ export const EXPERIENCES: ExperienceDetails[] = [
 ];
 
 export const PROJECTS: ProjectDetails[] = [
+  {
+    name: "Aicade 2D Game Builder",
+    description:
+      "Make Your Own Games with AI Just Type and Create. Effortlessly Transform Your Ideas Into Interactive Experiences Now With Our AI Game Builder",
+    url: "https://create.aicade.io/",
+    previewImage: Aicade,
+    technologies: [
+      "React",
+      "Nextjs",
+      "Vitejs",
+      "Redux",
+      "Typescript",
+      "Phaser",
+      "Tailwind CSS",
+      "Styled Components",
+    ],
+    androidLink: "",
+    iosLink: "",
+  },
   {
     name: "YoChatGPT",
     description:
