@@ -185,7 +185,7 @@ export const EXPERIENCES: ExperienceDetails[] = [
     logoAlt: "LabLamb Works",
     company: "LabLamb Works",
     position: "Full Stack Developer",
-    startDate: new Date(2022, 3),
+    startDate: new Date(2023, 2),
     currentlyWorkHere: false,
     endDate: new Date(2024, 10),
     summary: [
