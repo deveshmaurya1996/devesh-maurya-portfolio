@@ -26,6 +26,7 @@ import YLHH from "/public/images/YLHHThumbnail.png";
 import LabLamb from "/public/images/LabLambWorks.png";
 import Meet from "/public/images/meet.jpg";
 import Aicade from "/public/images/Aicade.svg";
+import Ahenstech from "/public/images/ahenstech_logo.jpeg";
 import {
   ExperienceDetails,
   ProjectDetails,
@@ -167,12 +168,24 @@ export const TECHNOLOGIES: TechDetailsType[] = [
 
 export const EXPERIENCES: ExperienceDetails[] = [
   {
+    logo: Ahenstech,
+    logoAlt: "Ahenstech",
+    company: "Ahenstech",
+    position: "Full Stack Developer - Part Time",
+    startDate: new Date(2025, 6),
+    currentlyWorkHere: true,
+    summary: [
+      "Developed a resume builder using React, Next.js, Tailwind CSS, and TypeScript.",
+    ],
+  },
+  {
     logo: Aicade,
     logoAlt: "Aicade",
     company: "Aicade Inc.",
     position: "Full Stack Developer | Frontend Specialist",
     startDate: new Date(2024, 11),
-    currentlyWorkHere: true,
+    endDate: new Date(2025, 6),
+    currentlyWorkHere: false,
     summary: [
       "Developed 2D game generation tools using Vite.js, Next.js, Redux, and TanStack Query.",
       "Integrated AI-powered APIs to enhance game asset recommendations and procedural content generation.",
