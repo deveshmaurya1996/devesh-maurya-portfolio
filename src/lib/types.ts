@@ -35,3 +35,8 @@ export type TestimonialDetails = {
   testimonial: string;
   title: string;
 };
+
+export type AdditionalSkillType = {
+  label: string;
+  category: string;
+};

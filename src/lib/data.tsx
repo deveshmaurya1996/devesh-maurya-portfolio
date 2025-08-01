@@ -17,6 +17,12 @@ import LogoTailwindcss from "/public/images/logos/icon-tailwindcss.svg";
 import LogoFigma from "/public/images/logos/icon-figma.svg";
 import LogoGit from "/public/images/logos/icon-git.svg";
 import Keystone from "/public/images/logos/icon-keystonejs.svg";
+import LogoVite from "/public/images/logos/icon-vite.svg";
+import LogoRedux from "/public/images/logos/icon-redux.svg";
+import LogoTanstack from "/public/images/logos/icon-tanstack.png";
+import LogoExpo from "/public/images/logos/icon-expo.svg";
+import LogoExpoLight from "/public/images/logos/icon-expo-light.svg";
+import LogoGraphQL from "/public/images/logos/icon-graphql.svg";
 
 import labLambworks from "/public/images/logos/logo-lablamb.png";
 import YoChatGPT from "/public/images/yogpt.png";
@@ -28,6 +34,7 @@ import Meet from "/public/images/meet.jpg";
 import Aicade from "/public/images/Aicade.svg";
 import Ahenstech from "/public/images/ahenstech_logo.jpeg";
 import {
+  AdditionalSkillType,
   ExperienceDetails,
   ProjectDetails,
   TechDetailsType,
@@ -77,6 +84,41 @@ export const SOCIAL_LINKS = [
   {
     icon: "whatsapp",
     url: `https://wa.me/${whatsappNumber}`,
+  },
+];
+
+export const ADDITIONAL_SKILLS: AdditionalSkillType[] = [
+  {
+    category: "AI & Machine Learning",
+    label: "AI Integration",
+  },
+  {
+    category: "AI & Machine Learning",
+    label: "LLM Implementation",
+  },
+  {
+    category: "AI & Machine Learning",
+    label: "OpenAI API",
+  },
+  {
+    category: "Cloud & DevOps",
+    label: "AWS Services",
+  },
+  {
+    category: "Cloud & DevOps",
+    label: "CI/CD Implementation",
+  },
+  {
+    category: "Development",
+    label: "REST API Design",
+  },
+  {
+    category: "Development",
+    label: "System Architecture",
+  },
+  {
+    category: "Development",
+    label: "Microservices",
   },
 ];
 
@@ -163,6 +205,32 @@ export const TECHNOLOGIES: TechDetailsType[] = [
     label: "Git",
     logo: LogoGit,
     url: "https://git-scm.com/",
+  },
+  {
+    label: "Vite",
+    logo: LogoVite,
+    url: "https://vitejs.dev/",
+  },
+  {
+    label: "Redux",
+    logo: LogoRedux,
+    url: "https://redux.js.org/",
+  },
+  {
+    label: "TanStack Query",
+    logo: LogoTanstack,
+    url: "https://tanstack.com/query/",
+  },
+  {
+    label: "Expo",
+    logo: LogoExpo,
+    darkModeLogo: LogoExpoLight,
+    url: "https://expo.dev/",
+  },
+  {
+    label: "GraphQL",
+    logo: LogoGraphQL,
+    url: "https://graphql.org/",
   },
 ];
 
