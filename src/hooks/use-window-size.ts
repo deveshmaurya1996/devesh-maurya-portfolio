@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Size = {
   width: number | null;
@@ -10,8 +10,11 @@ export default function useWindowSize() {
     width: null,
     height: null,
   });
+  const [mounted, setMounted] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    setMounted(true);
+    
     const handleResize = () => {
       setSize({
         width: window.innerWidth,
@@ -26,6 +29,11 @@ export default function useWindowSize() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  // Return null values during SSR to prevent hydration mismatch
+  if (!mounted) {
+    return { width: null, height: null };
+  }
 
   return size;
 }

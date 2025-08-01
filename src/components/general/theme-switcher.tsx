@@ -1,22 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { MoonStar, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 import IconButton from '@/components/general/icon-button';
+import useMounted from '@/hooks/use-mounted';
 
 const ThemeSwitcher = () => {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // until the UI is mounted, display a dummy icon
   if (!mounted) {

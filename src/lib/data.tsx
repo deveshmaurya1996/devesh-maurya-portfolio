@@ -1,4 +1,19 @@
-import { Github, Twitter, LucideLinkedin } from "lucide-react";
+import {
+  Github,
+  Twitter,
+  LucideLinkedin,
+  Brain,
+  Cloud,
+  Code,
+  Database,
+  GitBranch,
+  Server,
+  Zap,
+  Cpu,
+  Network,
+  Shield,
+  Workflow,
+} from "lucide-react";
 import LogoReactNative from "/public/images/logos/icon-react-native.svg";
 import LogoJavascript from "/public/images/logos/icon-javascript.svg";
 import LogoTypescript from "/public/images/logos/icon-typescript.svg";
@@ -23,6 +38,8 @@ import LogoTanstack from "/public/images/logos/icon-tanstack.png";
 import LogoExpo from "/public/images/logos/icon-expo.svg";
 import LogoExpoLight from "/public/images/logos/icon-expo-light.svg";
 import LogoGraphQL from "/public/images/logos/icon-graphql.svg";
+import LogoPython from "/public/images/logos/icon-python.svg";
+import LogoFastAPI from "/public/images/logos/icon-fastapi.svg"; 
 
 import labLambworks from "/public/images/logos/logo-lablamb.png";
 import YoChatGPT from "/public/images/yogpt.png";
@@ -34,11 +51,12 @@ import Meet from "/public/images/meet.jpg";
 import Aicade from "/public/images/Aicade.svg";
 import Ahenstech from "/public/images/ahenstech_logo.jpeg";
 import {
-  AdditionalSkillType,
   ExperienceDetails,
   ProjectDetails,
   TechDetailsType,
   TestimonialDetails,
+  SkillCategory,
+  SkillItem,
 } from "@/lib/types";
 
 export const EXTERNAL_LINKS = {
@@ -87,38 +105,56 @@ export const SOCIAL_LINKS = [
   },
 ];
 
-export const ADDITIONAL_SKILLS: AdditionalSkillType[] = [
+export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    category: "AI & Machine Learning",
-    label: "AI Integration",
+    name: "AI & Machine Learning",
+    icon: Brain,
+    skills: [
+      {
+        label: "AI Integration",
+        icon: Brain,
+      },
+      {
+        label: "LLM Implementation",
+        icon: Cpu,
+      },
+      {
+        label: "OpenAI API",
+        icon: Zap,
+      },
+    ],
   },
   {
-    category: "AI & Machine Learning",
-    label: "LLM Implementation",
+    name: "Cloud & DevOps",
+    icon: Cloud,
+    skills: [
+      {
+        label: "AWS Services",
+        icon: Cloud,
+      },
+      {
+        label: "CI/CD Implementation",
+        icon: Workflow,
+      },
+    ],
   },
   {
-    category: "AI & Machine Learning",
-    label: "OpenAI API",
-  },
-  {
-    category: "Cloud & DevOps",
-    label: "AWS Services",
-  },
-  {
-    category: "Cloud & DevOps",
-    label: "CI/CD Implementation",
-  },
-  {
-    category: "Development",
-    label: "REST API Design",
-  },
-  {
-    category: "Development",
-    label: "System Architecture",
-  },
-  {
-    category: "Development",
-    label: "Microservices",
+    name: "Development",
+    icon: Code,
+    skills: [
+      {
+        label: "REST API Design",
+        icon: Code,
+      },
+      {
+        label: "System Architecture",
+        icon: Server,
+      },
+      {
+        label: "Microservices",
+        icon: Network,
+      },
+    ],
   },
 ];
 
@@ -232,6 +268,16 @@ export const TECHNOLOGIES: TechDetailsType[] = [
     logo: LogoGraphQL,
     url: "https://graphql.org/",
   },
+  {
+    label: "Python",
+    logo: LogoPython,
+    url: "https://www.python.org/",
+  },
+  {
+    label: "FastAPI",
+    logo: LogoFastAPI,
+    url: "https://fastapi.tiangolo.com/",
+  },
 ];
 
 export const EXPERIENCES: ExperienceDetails[] = [
@@ -308,7 +354,7 @@ export const PROJECTS: ProjectDetails[] = [
       "Typescript",
       "Material UI",
       "MongoDB",
-      "Socket.io",
+      "useSWR",
       "ChatGPT API",
       "Styled Components",
     ],

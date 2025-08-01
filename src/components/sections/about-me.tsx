@@ -31,65 +31,44 @@ const AboutMeSection = () => {
             Curious about me? Here you have it:
           </Typography>
           <Typography>
-            I&apos;m a passionate, who specializes in full stack development
-            (React.js, Node.js & React Native). I am enthusiastic about bringing
-            the technical and visual aspects of digital products to life. User
-            experience, pixel perfect design, and writing clear, readable,
-            highly performant code matters to me.
+            I&apos;m a Full Stack Developer with 2+ years of experience, specializing in building responsive, high-performing web and mobile applications. My expertise lies in React.js, Next.js, Node.js, and React Native, along with GraphQL and MongoDB for scalable backend solutions. I am passionate about delivering exceptional user experiences through clean, efficient, and maintainable code.
           </Typography>
           <Typography>
-            I began my journey as a web developer in 2021, and since then,
-            I&apos;ve continued to grow and evolve as a developer, taking on new
-            challenges and learning the latest technologies along the way. Now,
-            in my career, 2+ years after starting my development journey,
-            I&apos;m building cutting-edge mobile and web applications using
-            modern technologies such as Keystone, TypeScript, Next.js, MUI,
-            Tailwindcss and much more.
+            My journey started in 2021, and since then, I&apos;ve grown from developing basic websites to building advanced, AI-powered, data-driven applications. Over the years, I&apos;ve gained hands-on experience working on diverse projects—from real-time chat applications and mobile marketplaces to AI-assisted 2D game builders.
           </Typography>
           <Typography>
-            I am very much a progressive thinker and enjoy working on products
-            end to end, from ideation all the way to development.
+          I previously worked as a Full Stack Developer at Aicade, where I focus on frontend architecture and integrating AI-driven APIs to optimize 2D game generation tools. Previously, I contributed to multiple client projects at LabLamb Works Limited, developing cross-platform apps and web solutions using modern frameworks like Gatsby, Keystone, and TypeScript.
           </Typography>
           <Typography>
-            When I&apos;m not in full-on developer mode, you can find me
-            hovering around on twitter. You can follow me on{" "}
-            <Link
-              noCustomization
-              externalLink
-              withUnderline
-              href={EXTERNAL_LINKS.TWITTER}
-            >
+            I enjoy working on projects end-to-end, from ideation and design to deployment and optimization. My interests include AI integration, real-time communication systems, and solving challenging engineering problems.
+          </Typography>
+          <Typography>
+            When I&apos;m not coding, you can find me sharing thoughts on 
+            {" "}<Link noCustomization externalLink withUnderline href={EXTERNAL_LINKS.TWITTER}>
               Twitter
-            </Link>{" "}
-            or you can follow me on{" "}
-            <Link
-              noCustomization
-              externalLink
-              withUnderline
-              href={EXTERNAL_LINKS.GITHUB}
-            >
+            </Link> or pushing new projects on{" "}
+            <Link noCustomization externalLink withUnderline href={EXTERNAL_LINKS.GITHUB}>
               GitHub
             </Link>
-            .
+            . You&apos;re welcome to follow me on both platforms to stay connected.
           </Typography>
-          <Typography>Finally, some quick bits about me.</Typography>
+          <Typography>Some quick bits about me:</Typography>
           <div className="flex flex-col gap-2 md:flex-row md:gap-6">
             <ul className="flex list-inside list-disc flex-col gap-2">
               <Typography component="li">B.Sc in Mathematics</Typography>
-              <Typography component="li">
-                Industry Ready Certification in Full-stack Development
-              </Typography>
+              <Typography component="li">Post Graduate Diploma in Computer Applications</Typography>
+              <Typography component="li">Industry Ready Certification in Full-stack Development</Typography>
             </ul>
             <ul className="flex list-inside list-disc flex-col gap-2">
-              <Typography component="li">Avid learner</Typography>
-              <Typography component="li">Part time freelancer</Typography>
+              <Typography component="li">Passionate about AI and real-time systems</Typography>
+              <Typography component="li">Part-time freelancer open to collaborations</Typography>
             </ul>
           </div>
           <Typography>
-            One last thing, I&apos;m available for part time freelance work, so
-            feel free to reach out and say hello! I promise I don&apos;t bite 😉
+            I&apos;m available for freelance opportunities, so feel free to reach out and say hello! Let&apos;s build something amazing together. 😉
           </Typography>
         </div>
+
       </div>
     </Container>
   );

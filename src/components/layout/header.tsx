@@ -13,6 +13,7 @@ import { NAV_LINKS } from "@/lib/data";
 import { mergeClasses } from "@/lib/utils";
 import useWindowSize from "@/hooks/use-window-size";
 import useScroll from "@/hooks/use-scroll";
+import useMounted from "@/hooks/use-mounted";
 import Link from "@/components/navigation/link";
 import ThemeSwitcher from "@/components/general/theme-switcher";
 import IconButton from "@/components/general/icon-button";
@@ -28,6 +29,7 @@ const Logo = () => (
 const Header = () => {
   const scrolled = useScroll(40);
   const [isOpen, setIsOpen] = useState(false);
+  const mounted = useMounted();
   const size = useWindowSize();
 
   // close sidebar if open in screen size < 768px
@@ -41,7 +43,7 @@ const Header = () => {
     <header
       className={mergeClasses(
         "sticky top-0 z-30 w-full border-b border-transparent bg-gray max-md:border-gray-100",
-        scrolled ? "bg-gray/50 backdrop-blur-xl md:border-gray-100" : ""
+        mounted && scrolled ? "bg-gray/50 backdrop-blur-xl md:border-gray-100" : ""
       )}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between p-4 md:px-8">

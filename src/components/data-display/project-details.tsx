@@ -13,6 +13,7 @@ import Android from "/public/images/android.png";
 import apple from "/public/images/apple.png";
 import appleDark from "/public/images/apple-logo.png";
 import { useTheme } from "next-themes";
+import useMounted from "@/hooks/use-mounted";
 
 type ProjectDetailsProps = ProjectDetailsType & {
   layoutType: "default" | "reverse";
@@ -28,7 +29,9 @@ const ProjectDetails = ({
   androidLink,
   iosLink,
 }: ProjectDetailsProps) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+  const mounted = useMounted();
+
   return (
     <Card className="mx-auto flex w-full max-w-6xl flex-col md:flex-row">
       {/* Image */}
@@ -96,7 +99,7 @@ const ProjectDetails = ({
               <Link href={iosLink} externalLink>
                 <Button className="gap-1">
                   <Image
-                    src={theme === "dark" ? appleDark : apple}
+                    src={mounted && theme === "dark" ? appleDark : apple}
                     alt="apple"
                     width={20}
                     height={20}

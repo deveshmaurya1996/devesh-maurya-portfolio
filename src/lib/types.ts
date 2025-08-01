@@ -36,7 +36,15 @@ export type TestimonialDetails = {
   title: string;
 };
 
-export type AdditionalSkillType = {
+export type SkillItem = {
   label: string;
-  category: string;
+  icon?: React.ComponentType<{ className?: string }>;
 };
+
+export type SkillCategory = {
+  name: string;
+  icon: React.ComponentType<{ className?: string }>;
+  skills: SkillItem[];
+};
+
+
