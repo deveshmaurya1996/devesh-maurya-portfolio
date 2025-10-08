@@ -11,6 +11,7 @@ export type ExperienceDetails = {
   logo: string | StaticImageData;
   darkModeLogo?: string | StaticImageData;
   company: string;
+  companyUrl?: string;
   logoAlt: string;
   position: string;
   currentlyWorkHere?: boolean;
@@ -46,5 +47,3 @@ export type SkillCategory = {
   icon: React.ComponentType<{ className?: string }>;
   skills: SkillItem[];
 };
-
-

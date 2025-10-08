@@ -39,7 +39,7 @@ import LogoExpo from "/public/images/logos/icon-expo.svg";
 import LogoExpoLight from "/public/images/logos/icon-expo-light.svg";
 import LogoGraphQL from "/public/images/logos/icon-graphql.svg";
 import LogoPython from "/public/images/logos/icon-python.svg";
-import LogoFastAPI from "/public/images/logos/icon-fastapi.svg"; 
+import LogoFastAPI from "/public/images/logos/icon-fastapi.svg";
 
 import labLambworks from "/public/images/logos/logo-lablamb.png";
 import YoChatGPT from "/public/images/yogpt.png";
@@ -50,6 +50,7 @@ import LabLamb from "/public/images/LabLambWorks.png";
 import Meet from "/public/images/meet.jpg";
 import Aicade from "/public/images/Aicade.svg";
 import Ahenstech from "/public/images/ahenstech_logo.jpeg";
+import BullShark from "/public/images/bullshark_studio_logo.jpg";
 import {
   ExperienceDetails,
   ProjectDetails,
@@ -282,12 +283,28 @@ export const TECHNOLOGIES: TechDetailsType[] = [
 
 export const EXPERIENCES: ExperienceDetails[] = [
   {
+    logo: BullShark,
+    logoAlt: "Bull Shark",
+    company: "Bull Shark",
+    companyUrl: "https://bullshark.studio/",
+    position: "Full Stack Developer",
+    startDate: new Date(2025, 8),
+    currentlyWorkHere: true,
+    summary: [
+      "We build full-stack solutions using modern frameworks (React, Next.js, Node.js, FastAPI).",
+      "Our mobile apps leverage cross-platform tech for high performance on iOS & Android.",
+      "We integrate AI models for automation, computer vision, and intelligent user experiences.",
+    ],
+  },
+  {
     logo: Ahenstech,
     logoAlt: "Ahenstech",
     company: "Ahenstech",
+    companyUrl: "https://ahenstech.com",
     position: "Full Stack Developer - Part Time",
     startDate: new Date(2025, 6),
-    currentlyWorkHere: true,
+    endDate: new Date(2025, 7),
+    currentlyWorkHere: false,
     summary: [
       "Developed a resume builder using React, Next.js, Tailwind CSS, and TypeScript.",
     ],
@@ -296,6 +313,7 @@ export const EXPERIENCES: ExperienceDetails[] = [
     logo: Aicade,
     logoAlt: "Aicade",
     company: "Aicade Inc.",
+    companyUrl: "https://aicade.io",
     position: "Full Stack Developer | Frontend Specialist",
     startDate: new Date(2024, 11),
     endDate: new Date(2025, 6),
@@ -311,6 +329,7 @@ export const EXPERIENCES: ExperienceDetails[] = [
     logo: labLambworks,
     logoAlt: "LabLamb Works",
     company: "LabLamb Works",
+    companyUrl: "https://lablambworks.com",
     position: "Full Stack Developer",
     startDate: new Date(2023, 2),
     currentlyWorkHere: false,

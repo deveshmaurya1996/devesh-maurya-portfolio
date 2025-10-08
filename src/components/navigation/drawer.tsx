@@ -10,6 +10,18 @@ const DrawerTrigger = DrawerPrimitive.Trigger;
 
 const DrawerClose = DrawerPrimitive.Close;
 
+const DrawerTitle = React.forwardRef<
+  React.ElementRef<typeof DrawerPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
+>(({ className, ...props }, ref) => (
+  <DrawerPrimitive.Title
+    ref={ref}
+    className={mergeClasses("sr-only", className)}
+    {...props}
+  />
+));
+DrawerTitle.displayName = DrawerPrimitive.Title.displayName;
+
 const DrawerPortal = ({ ...props }: DrawerPrimitive.DialogPortalProps) => (
   <DrawerPrimitive.Portal {...props} />
 );
@@ -66,4 +78,4 @@ const DrawerContent = React.forwardRef<
 ));
 DrawerContent.displayName = DrawerPrimitive.Content.displayName;
 
-export { Drawer, DrawerTrigger, DrawerClose, DrawerContent };
+export { Drawer, DrawerTrigger, DrawerClose, DrawerContent, DrawerTitle };

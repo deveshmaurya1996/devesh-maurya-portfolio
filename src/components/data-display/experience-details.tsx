@@ -1,6 +1,7 @@
 import Typography from "@/components/general/typography";
 import ImageWrapper from "@/components/data-display/image-wrapper";
 import Card from "@/components/layout/card";
+import Link from "@/components/navigation/link";
 import { ExperienceDetails as ExperienceDetailsProps } from "@/lib/types";
 
 const dateFormatOptions: Intl.DateTimeFormatOptions = {
@@ -18,21 +19,44 @@ const ExperienceDetails = ({
   endDate,
   summary,
   company,
+  companyUrl,
 }: ExperienceDetailsProps) => {
   return (
     <Card className="mx-auto flex w-full max-w-4xl flex-col justify-between gap-4 p-8 md:flex-row md:gap-8">
       <div className="max-md:order-1 md:w-1/4">
-        <ImageWrapper
-          src={logo}
-          srcForDarkMode={darkModeLogo}
-          alt={logoAlt}
-          className="mx-auto max-w-[120px]"
-        />
+        {companyUrl ? (
+          <Link href={companyUrl} externalLink noCustomization>
+            <ImageWrapper
+              src={logo}
+              srcForDarkMode={darkModeLogo}
+              alt={logoAlt}
+              className="mx-auto max-w-[120px] cursor-pointer transition-transform hover:scale-105"
+            />
+          </Link>
+        ) : (
+          <ImageWrapper
+            src={logo}
+            srcForDarkMode={darkModeLogo}
+            alt={logoAlt}
+            className="mx-auto max-w-[120px]"
+          />
+        )}
       </div>
       <div className="flex flex-col gap-4 max-md:order-3 md:w-2/4">
-        <Typography variant="h3" className="font-semibold text-gray-900">
-          {company}
-        </Typography>
+        {companyUrl ? (
+          <Link href={companyUrl} externalLink noCustomization>
+            <Typography
+              variant="h3"
+              className="font-semibold text-gray-900 transition-colors hover:text-blue-600"
+            >
+              {company}
+            </Typography>
+          </Link>
+        ) : (
+          <Typography variant="h3" className="font-semibold text-gray-900">
+            {company}
+          </Typography>
+        )}
         <Typography variant="subtitle" className="font-semibold text-gray-900">
           {position}
         </Typography>

@@ -8,6 +8,7 @@ import {
   DrawerTrigger,
   DrawerContent,
   DrawerClose,
+  DrawerTitle,
 } from "@/components/navigation/drawer";
 import { NAV_LINKS } from "@/lib/data";
 import { mergeClasses } from "@/lib/utils";
@@ -43,7 +44,9 @@ const Header = () => {
     <header
       className={mergeClasses(
         "sticky top-0 z-30 w-full border-b border-transparent bg-gray max-md:border-gray-100",
-        mounted && scrolled ? "bg-gray/50 backdrop-blur-xl md:border-gray-100" : ""
+        mounted && scrolled
+          ? "bg-gray/50 backdrop-blur-xl md:border-gray-100"
+          : ""
       )}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between p-4 md:px-8">
@@ -72,6 +75,7 @@ const Header = () => {
             </IconButton>
           </DrawerTrigger>
           <DrawerContent>
+            <DrawerTitle>Navigation Menu</DrawerTitle>
             <div className="flex items-center justify-between border-b border-gray-100 p-4">
               <Logo />
               <DrawerClose asChild>
