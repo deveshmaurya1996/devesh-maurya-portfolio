@@ -43,12 +43,18 @@ const ProjectDetails = ({
             : "md:order-last md:rounded-r-xl md:border-l"
         )}
       >
-        <Link noCustomization href={url} externalLink>
+        <Link
+          noCustomization
+          href={url}
+          externalLink
+          className="flex h-[400px] w-full items-center justify-center"
+        >
           <Image
             src={previewImage}
             alt={`${name} preview`}
-            className="rounded-xl shadow-lg transition-transform duration-500 md:hover:scale-105"
-            style={{ objectFit: "cover" }}
+            width={600}
+            height={400}
+            className="h-full w-full rounded-xl object-contain shadow-lg transition-transform duration-500 md:hover:scale-105"
           />
         </Link>
       </div>

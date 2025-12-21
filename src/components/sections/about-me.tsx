@@ -6,8 +6,10 @@ import Container from "@/components/layout/container";
 import Typography from "@/components/general/typography";
 import Link from "@/components/navigation/link";
 import { EXTERNAL_LINKS } from "@/lib/data";
+import { calculateYearsOfExperience } from "@/lib/utils";
 
 const AboutMeSection = () => {
+  const yearsOfExperience = calculateYearsOfExperience();
   return (
     <Container className="bg-gray-50" id="about">
       <div className="self-center">
@@ -31,12 +33,13 @@ const AboutMeSection = () => {
             Curious about me? Here you have it:
           </Typography>
           <Typography>
-            I&apos;m a Full Stack Developer with 2+ years of experience,
-            specializing in building responsive, high-performing web and mobile
-            applications. My expertise lies in React.js, Next.js, Node.js, and
-            React Native, along with GraphQL and MongoDB for scalable backend
-            solutions. I am passionate about delivering exceptional user
-            experiences through clean, efficient, and maintainable code.
+            I&apos;m a Full Stack Developer with {yearsOfExperience} years of
+            experience, specializing in building responsive, high-performing web
+            and mobile applications. My expertise lies in React.js, Next.js,
+            Node.js, and React Native, along with GraphQL and MongoDB for
+            scalable backend solutions. I am passionate about delivering
+            exceptional user experiences through clean, efficient, and
+            maintainable code.
           </Typography>
           <Typography>
             My journey started in 2021, and since then, I&apos;ve grown from

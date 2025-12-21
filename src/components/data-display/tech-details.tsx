@@ -18,7 +18,9 @@ const TechDetails = ({ url, logo, darkModeLogo, label }: TechDetailsType) => {
           className="h-[40px] w-[40px] transition-transform duration-300 md:h-[50px] md:w-[50px] md:hover:scale-110 lg:h-[60px] lg:w-[60px]"
         />
       </Link>
-      <Typography variant="body1">{label}</Typography>
+      <Typography variant="body1" className="text-center">
+        {label}
+      </Typography>
     </div>
   );
 };

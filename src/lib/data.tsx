@@ -51,6 +51,9 @@ import Meet from "/public/images/meet.jpg";
 import Aicade from "/public/images/Aicade.svg";
 import Ahenstech from "/public/images/ahenstech_logo.jpeg";
 import BullShark from "/public/images/bullshark_studio_logo.jpg";
+import LandsAuthority from "../../public/images/Landing Screen.png";
+import ThriveOn from "../../public/images/Thriveon.png";
+
 import {
   ExperienceDetails,
   ProjectDetails,
@@ -342,6 +345,46 @@ export const EXPERIENCES: ExperienceDetails[] = [
 ];
 
 export const PROJECTS: ProjectDetails[] = [
+  {
+    name: "Lands Authority Platform",
+    description:
+      "A modern, secure employee time tracking and management system built with Next.js 15, TypeScript, and Azure AD B2C authentication. Features comprehensive admin interface, role-based access control, and real-time updates.",
+    url: "",
+    previewImage: LandsAuthority,
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "SQLServer",
+      "Azure AD B2C",
+      "NextAuth.js",
+      ".NET Aspire",
+    ],
+    androidLink: "",
+    iosLink: "",
+  },
+  {
+    name: "ThriveOn Digital Platform",
+    description:
+      "A comprehensive digital wellness platform featuring courses, exercises, events, and community features. Collaborated on developing the cross-platform mobile app using React Native/Expo, Strapi CMS admin portal, and .NET Aspire backend infrastructure. Contributed to UI component library, API integration, and WordPress plugin development.",
+    url: "",
+    previewImage: ThriveOn,
+    technologies: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Strapi",
+      ".NET Aspire",
+      "PostgreSQL",
+      "WordPress",
+      "React",
+      "Node.js",
+    ],
+    androidLink: "",
+    iosLink: "",
+  },
   {
     name: "Aicade 2D Game Builder",
     description:

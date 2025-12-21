@@ -5,8 +5,10 @@ import deveshMaurya from "/public/images/deveshMauryaNew.png";
 import SocialIcons from "@/components/data-display/social-icons";
 import Typography from "@/components/general/typography";
 import Container from "@/components/layout/container";
+import { calculateYearsOfExperience } from "@/lib/utils";
 
 const HeroSection = () => {
+  const yearsOfExperience = calculateYearsOfExperience();
   return (
     <Container id="hero">
       <div className="flex flex-col gap-12 md:flex-row">
@@ -34,7 +36,8 @@ const HeroSection = () => {
               I&apos;m a full stack developer with a focus on creating and
               exceptional digital experiences that are fast, accessible,
               visually appealing, and responsive. Even though I have been
-              creating web applications and Mobile applications for over 2+
+              creating web applications and Mobile applications for over{" "}
+              {yearsOfExperience}
               years, I still love it as if it was something new.
             </Typography>
           </div>
