@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import { Providers } from "@/lib/providers";
 import Footer from "@/components/layout/footer";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,10 +27,6 @@ export const metadata: Metadata = {
     "Devesh Maurya",
   ],
   creator: "Devesh Maurya",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
   openGraph: {
     type: "website",
     url,
@@ -57,6 +53,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -64,7 +67,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.className} bg-gray text-gray-600 antialiased`} suppressHydrationWarning>
+      <body
+        className={`${inter.className} bg-gray text-gray-600 antialiased`}
+        suppressHydrationWarning
+      >
         <Providers>
           <Header />
           <main className="flex min-h-screen w-full flex-col">{children}</main>
