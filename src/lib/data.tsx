@@ -299,19 +299,19 @@ export const EXPERIENCES: ExperienceDetails[] = [
       "We integrate AI models for automation, computer vision, and intelligent user experiences.",
     ],
   },
-  {
-    logo: Ahenstech,
-    logoAlt: "Ahenstech",
-    company: "Ahenstech",
-    companyUrl: "https://ahenstech.com",
-    position: "Full Stack Developer - Part Time",
-    startDate: new Date(2025, 6),
-    endDate: new Date(2025, 7),
-    currentlyWorkHere: false,
-    summary: [
-      "Developed a resume builder using React, Next.js, Tailwind CSS, and TypeScript.",
-    ],
-  },
+  // {
+  //   logo: Ahenstech,
+  //   logoAlt: "Ahenstech",
+  //   company: "Ahenstech",
+  //   companyUrl: "https://ahenstech.com",
+  //   position: "Full Stack Developer - Part Time",
+  //   startDate: new Date(2025, 6),
+  //   endDate: new Date(2025, 7),
+  //   currentlyWorkHere: false,
+  //   summary: [
+  //     "Developed a resume builder using React, Next.js, Tailwind CSS, and TypeScript.",
+  //   ],
+  // },
   {
     logo: Aicade,
     logoAlt: "Aicade",
@@ -319,7 +319,7 @@ export const EXPERIENCES: ExperienceDetails[] = [
     companyUrl: "https://aicade.io",
     position: "Full Stack Developer | Frontend Specialist",
     startDate: new Date(2024, 11),
-    endDate: new Date(2025, 6),
+    endDate: new Date(2025, 7),
     currentlyWorkHere: false,
     summary: [
       "Developed 2D game generation tools using Vite.js, Next.js, Redux, and TanStack Query.",
