@@ -13,7 +13,7 @@ export const copyTextToClipboard = async (text: string) => {
   }
 };
 
-export const calculateYearsOfExperience = (startDate: string = "2022-03-11"): string => {
+export const calculateYearsOfExperience = (startDate: string = "2023-03-01"): string => {
   const start = new Date(startDate);
   const currentDate = new Date();
   const years = currentDate.getFullYear() - start.getFullYear();

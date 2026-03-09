@@ -334,7 +334,7 @@ export const EXPERIENCES: ExperienceDetails[] = [
     company: "LabLamb Works Limited",
     companyUrl: "https://lablambworks.com",
     position: "Full Stack Developer",
-    startDate: new Date(2023, 2),
+    startDate: new Date(2022, 2),
     endDate: new Date(2024, 9),
     currentlyWorkHere: false,
     summary: [
