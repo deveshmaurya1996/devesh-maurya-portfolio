@@ -74,11 +74,15 @@ const whatsappNumber = "919670551347";
 export const NAV_LINKS = [
   {
     label: "About",
-    href: "#about",
+    href: "/#about",
   },
   {
     label: "Work",
-    href: "#work",
+    href: "/#work",
+  },
+  {
+    label: "Blog",
+    href: "/blog",
   },
   // {
   //   label: "Testimonials",
@@ -86,7 +90,7 @@ export const NAV_LINKS = [
   // },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/#contact",
   },
 ];
 

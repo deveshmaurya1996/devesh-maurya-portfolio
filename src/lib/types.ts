@@ -47,3 +47,10 @@ export type SkillCategory = {
   icon: React.ComponentType<{ className?: string }>;
   skills: SkillItem[];
 };
+
+export type BlogPost = {
+  slug: string;
+  title: string;
+  publishedAt: string;
+  excerpt: string;
+};
