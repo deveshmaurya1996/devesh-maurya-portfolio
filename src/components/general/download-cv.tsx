@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Download, Eye } from "lucide-react";
+import { ChevronDown, Eye } from "lucide-react";
 
 import Button from "@/components/general/button";
 
 const RESUME_PDF_URL =
-  "https://docs.google.com/document/d/1l6lSa-Ycd-FlBCvXRtRELYzBcXMEiVFo6vqU-xZRH5U/export?format=pdf";
+  "https://docs.google.com/document/d/1l6lSa-Ycd-FlBCvXRtRELYzBcXMEiVFo6vqU-xZRH5U/export?format=pdf&attachment=true";
 const RESUME_VIEW_URL =
-  "https://docs.google.com/document/d/1l6lSa-Ycd-FlBCvXRtRELYzBcXMEiVFo6vqU-xZRH5U/preview";
+  "https://docs.google.com/document/d/1l6lSa-Ycd-FlBCvXRtRELYzBcXMEiVFo6vqU-xZRH5U/edit?usp=sharing";
 
 const DownloadCV = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,18 +63,7 @@ const DownloadCV = () => {
             onClick={() => setIsOpen(false)}
           >
             <Eye size={16} />
-            View Resume
-          </a>
-          <a
-            href={RESUME_PDF_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900"
-            role="menuitem"
-            onClick={() => setIsOpen(false)}
-          >
-            <Download size={16} />
-            Download Resume
+            View / Download Resume
           </a>
         </div>
       ) : null}
