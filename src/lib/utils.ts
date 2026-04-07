@@ -13,15 +13,19 @@ export const copyTextToClipboard = async (text: string) => {
   }
 };
 
-export const calculateYearsOfExperience = (startDate: string = "2023-03-01"): string => {
+export const calculateYearsOfExperience = (
+  startDate: string = "2022-03-01"
+): string => {
   const start = new Date(startDate);
   const currentDate = new Date();
-  const years = currentDate.getFullYear() - start.getFullYear();
-  const months = currentDate.getMonth() - start.getMonth();
 
-  // Calculate total months
-  const totalMonths = years * 12 + months;
-  const totalYears = Math.floor(totalMonths / 12);
+  let years = currentDate.getFullYear() - start.getFullYear();
+  const monthDiff = currentDate.getMonth() - start.getMonth();
+  const dayDiff = currentDate.getDate() - start.getDate();
 
-  return `${totalYears}+`;
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+    years -= 1;
+  }
+
+  return `${Math.max(years, 0)}+`;
 };
