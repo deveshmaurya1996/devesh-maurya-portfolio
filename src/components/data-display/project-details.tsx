@@ -43,20 +43,49 @@ const ProjectDetails = ({
             : "md:order-last md:rounded-r-xl md:border-l"
         )}
       >
-        <Link
-          noCustomization
-          href={url}
-          externalLink
-          className="flex h-[400px] w-full items-center justify-center"
-        >
-          <Image
-            src={previewImage}
-            alt={`${name} preview`}
-            width={600}
-            height={400}
-            className="h-full w-full rounded-xl object-contain shadow-lg transition-transform duration-500 md:hover:scale-105"
-          />
-        </Link>
+        {previewImage ? (
+          <Link
+            noCustomization
+            href={url}
+            externalLink
+            className="flex h-[400px] w-full items-center justify-center"
+          >
+            <Image
+              src={previewImage}
+              alt={`${name} preview`}
+              width={600}
+              height={400}
+              className="h-full w-full rounded-xl object-contain shadow-lg transition-transform duration-500 md:hover:scale-105"
+            />
+          </Link>
+        ) : (
+          <div className="relative flex h-[400px] w-full flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-gradient-to-br from-gray-100 via-gray-50 to-white p-6 shadow-lg">
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
+              <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
+              <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
+            </div>
+
+            <div className="z-10 flex flex-col items-center gap-3 text-center">
+              <Typography variant="subtitle" className="font-semibold text-gray-900">
+                {name}
+              </Typography>
+              <Typography className="max-w-sm text-sm text-gray-600">
+                Professional workflow platform with enterprise-grade architecture
+                and role-based access control.
+              </Typography>
+            </div>
+
+            <div className="z-10 flex items-center justify-center">
+              <span className="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                Case Study Project
+              </span>
+            </div>
+
+            <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-gray-200/60 blur-2xl" />
+            <div className="absolute -bottom-20 -left-14 h-56 w-56 rounded-full bg-gray-100 blur-2xl" />
+          </div>
+        )}
       </div>
 
       {/* Content */}

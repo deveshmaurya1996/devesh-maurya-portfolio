@@ -350,6 +350,35 @@ export const EXPERIENCES: ExperienceDetails[] = [
 
 export const PROJECTS: ProjectDetails[] = [
   {
+    name: "Lamima Workflow Management",
+    description:
+      "An end-to-end workflow and project management platform for planning, assignment, and progress tracking across teams. Built with secure auth and RBAC (role-based access control) to enforce role-specific access for admins, managers, and contributors.",
+    url: "",
+    previewImage: "",
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "REST API",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth.js",
+      "RBAC",
+      "JWT",
+      "bcryptjs",
+      "TanStack Query",
+      "TanStack Table",
+      "Axios",
+      "Zod",
+      "React Hook Form",
+      "Jest",
+    ],
+    androidLink: "",
+    iosLink: "",
+  },
+  {
     name: "Lands Authority Platform",
     description:
       "A modern, secure employee time tracking and management system built with Next.js 15, TypeScript, and Azure AD B2C authentication. Features comprehensive admin interface, role-based access control, and real-time updates.",

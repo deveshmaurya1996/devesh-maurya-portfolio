@@ -5,6 +5,7 @@ import Header from "@/components/layout/header";
 import { Providers } from "@/lib/providers";
 import Footer from "@/components/layout/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import HireMeCursor from "@/components/general/hire-me-cursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -72,6 +73,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
+          <HireMeCursor />
           <Header />
           <main className="flex min-h-screen w-full flex-col">{children}</main>
           <Footer />
