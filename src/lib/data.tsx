@@ -1,7 +1,4 @@
 import {
-  Github,
-  Twitter,
-  LucideLinkedin,
   Brain,
   Cloud,
   Code,
@@ -11,36 +8,7 @@ import {
   Network,
   Workflow,
 } from "lucide-react";
-import LogoReactNative from "/public/images/logos/icon-react-native.svg";
-import LogoJavascript from "/public/images/logos/icon-javascript.svg";
-import LogoTypescript from "/public/images/logos/icon-typescript.svg";
-import LogoReact from "/public/images/logos/icon-react.svg";
-import LogoNextjs from "/public/images/logos/icon-nextjs.svg";
-import LogoGatsby from "/public/images/logos/icon-gatsby.svg";
-import LogoNodejs from "/public/images/logos/icon-nodejs.svg";
-import LogoExpress from "/public/images/logos/icon-express.svg";
-import LogoExpressLight from "/public/images/logos/icon-express-light.svg";
-import LogoSocket from "/public/images/logos/icon-socket.svg";
-import LogoSocketLight from "/public/images/logos/icon-socket-light.svg";
-import LogoPostgreSQL from "/public/images/logos/icon-postgresql.svg";
-import LogoMongoDB from "/public/images/logos/icon-mongodb.svg";
-import LogoMUI from "/public/images/logos/icon-Material-UI.svg";
-import LogoTailwindcss from "/public/images/logos/icon-tailwindcss.svg";
-import LogoFigma from "/public/images/logos/icon-figma.svg";
-import LogoGit from "/public/images/logos/icon-git.svg";
-import Keystone from "/public/images/logos/icon-keystonejs.svg";
-import LogoVite from "/public/images/logos/icon-vite.svg";
-import LogoRedux from "/public/images/logos/icon-redux.svg";
-import LogoTanstack from "/public/images/logos/icon-tanstack.png";
-import LogoExpo from "/public/images/logos/icon-expo.svg";
-import LogoExpoLight from "/public/images/logos/icon-expo-light.svg";
-import LogoGraphQL from "/public/images/logos/icon-graphql.svg";
-import LogoPython from "/public/images/logos/icon-python.svg";
-import LogoFastAPI from "/public/images/logos/icon-fastapi.svg";
-import LogoDocker from "/public/images/logos/icon-docker.svg";
-import LogoAzureAd from "/public/images/logos/icon-azure-ad.svg";
-import LogoPrisma from "/public/images/logos/icon-prisma.svg";
-
+import LogoZustand from "/public/images/logos/icon-zustand.png";
 import labLambworks from "/public/images/logos/logo-lablamb.png";
 import YoChatGPT from "/public/images/yogpt.png";
 import Airhub from "/public/images/airhub-thumbnail.png";
@@ -54,6 +22,7 @@ import Aicade from "/public/images/Aicade.svg";
 import BullShark from "/public/images/bullshark_studio_logo.jpg";
 import LandsAuthority from "../../public/images/Landing Screen.png";
 import ThriveOn from "../../public/images/Thriveon.png";
+import { SOCIAL_BRAND_ICONS } from "@/lib/social-brands";
 
 import {
   ExperienceDetails,
@@ -100,9 +69,9 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { icon: Github, url: EXTERNAL_LINKS.GITHUB },
-  { icon: Twitter, url: EXTERNAL_LINKS.TWITTER },
-  { icon: LucideLinkedin, url: EXTERNAL_LINKS.LINKEDIN },
+  { icon: SOCIAL_BRAND_ICONS.github, url: EXTERNAL_LINKS.GITHUB },
+  { icon: SOCIAL_BRAND_ICONS.x, url: EXTERNAL_LINKS.TWITTER },
+  { icon: SOCIAL_BRAND_ICONS.linkedin, url: EXTERNAL_LINKS.LINKEDIN },
   { icon: "whatsapp", url: `https://wa.me/${whatsappNumber}` },
 ];
 
@@ -121,7 +90,9 @@ export const SKILL_FREQUENCY: FrequencySkillGroup[] = [
       { label: "React", techLabel: "React" },
       { label: "Next.js", techLabel: "Next.js" },
       { label: "TypeScript", techLabel: "Typescript" },
+      { label: "JavaScript", techLabel: "Javascript" },
       { label: "Node.js", techLabel: "Node.js" },
+      { label: "Express.js", techLabel: "Express.js" },
       { label: "FastAPI", techLabel: "FastAPI" },
       { label: "Tailwind CSS", techLabel: "Tailwindcss" },
       { label: "Git", techLabel: "Git" },
@@ -134,20 +105,30 @@ export const SKILL_FREQUENCY: FrequencySkillGroup[] = [
       { label: "Expo", techLabel: "Expo" },
       { label: "PostgreSQL", techLabel: "PostgreSQL" },
       { label: "Prisma", techLabel: "Prisma" },
+      { label: "MongoDB", techLabel: "MongoDB" },
       { label: "GraphQL", techLabel: "GraphQL" },
       { label: "TanStack Query", techLabel: "TanStack Query" },
-      { label: "AI APIs" },
+      { label: "Redux", techLabel: "Redux" },
+      { label: "Zustand", techLabel: "Zustand" },
+      { label: "Vite", techLabel: "Vite" },
       { label: "Python", techLabel: "Python" },
+      { label: "Azure OpenAI", techLabel: "Azure OpenAI" },
+      { label: "AI APIs" },
     ],
   },
   {
     frequency: "Occasionally",
     skills: [
-      { label: "MongoDB", techLabel: "MongoDB" },
+      { label: "NestJS", techLabel: "NestJS" },
+      { label: "Redis", techLabel: "Redis" },
+      { label: "Strapi", techLabel: "Strapi" },
       { label: "Socket.io", techLabel: "Socket.io" },
       { label: "Gatsby", techLabel: "Gatsby" },
       { label: "Docker", techLabel: "Docker" },
       { label: "Azure AD B2C", techLabel: "Azure AD B2C" },
+      { label: "Material UI", techLabel: "MUI" },
+      { label: "Figma", techLabel: "Figma" },
+      { label: "Keystone", techLabel: "Keystonejs" },
     ],
   },
 ];
@@ -276,88 +257,55 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
 ];
 
+/** Docs links for skills — icons come from Iconify (simple-icons). */
 export const TECHNOLOGIES: TechDetailsType[] = [
-  {
-    label: "React Native",
-    logo: LogoReactNative,
-    url: "https://reactnative.dev/",
-  },
+  { label: "React Native", url: "https://reactnative.dev/" },
   {
     label: "Javascript",
-    logo: LogoJavascript,
     url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
+  { label: "Typescript", url: "https://www.typescriptlang.org/" },
+  { label: "React", url: "https://react.dev/" },
+  { label: "Next.js", url: "https://nextjs.org/" },
+  { label: "Gatsby", url: "https://www.gatsbyjs.com/" },
+  { label: "Node.js", url: "https://nodejs.org/en" },
+  { label: "Express.js", url: "https://expressjs.com/" },
+  { label: "Socket.io", url: "https://socket.io/" },
+  { label: "PostgreSQL", url: "https://www.postgresql.org/" },
+  { label: "Keystonejs", url: "https://keystonejs.com/" },
+  { label: "MongoDB", url: "https://www.mongodb.com/" },
+  { label: "MUI", url: "https://mui.com/" },
+  { label: "Tailwindcss", url: "https://tailwindcss.com/" },
+  { label: "Figma", url: "https://www.figma.com/" },
+  { label: "Git", url: "https://git-scm.com/" },
+  { label: "Vite", url: "https://vitejs.dev/" },
+  { label: "Redux", url: "https://redux.js.org/" },
   {
-    label: "Typescript",
-    logo: LogoTypescript,
-    url: "https://www.typescriptlang.org/",
+    label: "Zustand",
+    logo: LogoZustand,
+    url: "https://zustand.docs.pmnd.rs/",
   },
-  { label: "React", logo: LogoReact, url: "https://react.dev/" },
-  { label: "Next.js", logo: LogoNextjs, url: "https://nextjs.org/" },
-  { label: "Gatsby", logo: LogoGatsby, url: "https://www.gatsbyjs.com/" },
-  { label: "Node.js", logo: LogoNodejs, url: "https://nodejs.org/en" },
-  {
-    label: "Express.js",
-    logo: LogoExpress,
-    darkModeLogo: LogoExpressLight,
-    url: "https://expressjs.com/",
-  },
-  {
-    label: "Socket.io",
-    logo: LogoSocket,
-    darkModeLogo: LogoSocketLight,
-    url: "https://socket.io/",
-  },
-  {
-    label: "PostgreSQL",
-    logo: LogoPostgreSQL,
-    url: "https://www.postgresql.org/",
-  },
-  { label: "Keystonejs", logo: Keystone, url: "https://keystonejs.com/" },
-  { label: "MongoDB", logo: LogoMongoDB, url: "https://www.mongodb.com/" },
-  { label: "MUI", logo: LogoMUI, url: "https://mui.com/" },
-  {
-    label: "Tailwindcss",
-    logo: LogoTailwindcss,
-    url: "https://tailwindcss.com/",
-  },
-  { label: "Figma", logo: LogoFigma, url: "https://www.figma.com/" },
-  { label: "Git", logo: LogoGit, url: "https://git-scm.com/" },
-  { label: "Vite", logo: LogoVite, url: "https://vitejs.dev/" },
-  { label: "Redux", logo: LogoRedux, url: "https://redux.js.org/" },
-  {
-    label: "TanStack Query",
-    logo: LogoTanstack,
-    url: "https://tanstack.com/query/",
-  },
-  {
-    label: "Expo",
-    logo: LogoExpo,
-    darkModeLogo: LogoExpoLight,
-    url: "https://expo.dev/",
-  },
-  { label: "GraphQL", logo: LogoGraphQL, url: "https://graphql.org/" },
-  { label: "Python", logo: LogoPython, url: "https://www.python.org/" },
-  {
-    label: "FastAPI",
-    logo: LogoFastAPI,
-    url: "https://fastapi.tiangolo.com/",
-  },
-  {
-    label: "Docker",
-    logo: LogoDocker,
-    url: "https://www.docker.com/",
-  },
+  { label: "TanStack Query", url: "https://tanstack.com/query/" },
+  { label: "Expo", url: "https://expo.dev/" },
+  { label: "GraphQL", url: "https://graphql.org/" },
+  { label: "Python", url: "https://www.python.org/" },
+  { label: "FastAPI", url: "https://fastapi.tiangolo.com/" },
+  { label: "Docker", url: "https://www.docker.com/" },
   {
     label: "Azure AD B2C",
-    logo: LogoAzureAd,
     url: "https://learn.microsoft.com/en-us/azure/active-directory-b2c/",
   },
+  { label: "Prisma", url: "https://www.prisma.io/" },
   {
-    label: "Prisma",
-    logo: LogoPrisma,
-    url: "https://www.prisma.io/",
+    label: "Azure OpenAI",
+    url: "https://learn.microsoft.com/en-us/azure/ai-services/openai/",
   },
+  { label: "NestJS", url: "https://nestjs.com/" },
+  { label: "Redis", url: "https://redis.io/" },
+  { label: "Strapi", url: "https://strapi.io/" },
+  { label: "Cypress", url: "https://www.cypress.io/" },
+  { label: "Storybook", url: "https://storybook.js.org/" },
+  { label: "Sass", url: "https://sass-lang.com/" },
 ];
 
 export function getTechLogo(label: string) {

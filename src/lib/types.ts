@@ -1,10 +1,10 @@
 import type { StaticImageData } from "next/image";
 
 export type TechDetailsType = {
-  logo: string | StaticImageData;
-  darkModeLogo?: string | StaticImageData;
   label: string;
   url: string;
+  logo?: string | StaticImageData;
+  darkModeLogo?: string | StaticImageData;
 };
 
 export type ExperienceDetails = {

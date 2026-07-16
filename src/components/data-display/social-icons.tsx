@@ -2,6 +2,7 @@
 
 import { SOCIAL_LINKS } from "@/lib/data";
 import IconButton from "@/components/general/icon-button";
+import { BrandIcon } from "@/components/general/brand-icon";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import useMounted from "@/hooks/use-mounted";
@@ -10,8 +11,6 @@ import WhatsappGreen from "/public/images/whatsapp-green.png";
 const SocialIcons = () => {
   const { theme } = useTheme();
   const mounted = useMounted();
-
-  // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
     return (
       <div className="flex gap-1">
@@ -20,7 +19,7 @@ const SocialIcons = () => {
             {socialLink.icon === "whatsapp" ? (
               <Image src={WhatsappGreen} alt="WhatsApp" width={24} height={24} />
             ) : (
-              <socialLink.icon />
+              <BrandIcon icon={socialLink.icon} size={24} />
             )}
           </IconButton>
         ))}
@@ -38,7 +37,7 @@ const SocialIcons = () => {
           {socialLink.icon === "whatsapp" ? (
             <Image src={WhatsappGreen} alt="WhatsApp" width={24} height={24} />
           ) : (
-            <socialLink.icon />
+            <BrandIcon icon={socialLink.icon} size={24} />
           )}
         </IconButton>
       ))}

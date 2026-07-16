@@ -12,12 +12,12 @@ import * as Dialog from "@radix-ui/react-dialog";
 import {
   ExternalLink,
   FileText,
-  Github,
-  Linkedin,
   Mail,
   MapPin,
   X,
 } from "lucide-react";
+import { BrandIcon } from "@/components/general/brand-icon";
+import { SOCIAL_BRAND_ICONS } from "@/lib/social-brands";
 
 import {
   getRecruiterTopProjects,
@@ -138,12 +138,14 @@ function RecruiterModeDialog() {
             </a>
             <Link href={profile.linkedIn} externalLink noCustomization>
               <Button className="w-full justify-start gap-2 bg-transparent text-gray-900 ring-1 ring-gray-200 hover:bg-gray-50">
-                <Linkedin size={16} /> LinkedIn <ExternalLink size={14} />
+                <BrandIcon icon={SOCIAL_BRAND_ICONS.linkedin} size={16} />{" "}
+                LinkedIn <ExternalLink size={14} />
               </Button>
             </Link>
             <Link href={profile.github} externalLink noCustomization>
               <Button className="w-full justify-start gap-2 bg-transparent text-gray-900 ring-1 ring-gray-200 hover:bg-gray-50">
-                <Github size={16} /> GitHub <ExternalLink size={14} />
+                <BrandIcon icon={SOCIAL_BRAND_ICONS.github} size={16} /> GitHub{" "}
+                <ExternalLink size={14} />
               </Button>
             </Link>
             <a href={`mailto:${profile.email}`}>

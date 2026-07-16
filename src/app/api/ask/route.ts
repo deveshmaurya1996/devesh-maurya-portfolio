@@ -36,7 +36,10 @@ export async function POST(request: NextRequest) {
   const messages = [
     {
       role: "system",
-      content: `${knowledge}\n\nRespond in plain text. Prefer short paragraphs and bullet lists when listing projects or skills.`,
+      content: `${knowledge}
+
+Answer the latest user question now.
+Rules: use only the knowledge above; third person about Devesh; be specific with project names and tech; if unknown, say so; keep under ~180 words unless they ask for detail.`,
     },
     ...(body.history ?? [])
       .filter((m) => m.role === "user" || m.role === "assistant")
@@ -56,9 +59,9 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         model,
         messages,
-        temperature: 0.3,
-        max_tokens: 512,
-        top_p: 0.9,
+        temperature: 0.2,
+        max_tokens: 768,
+        top_p: 0.85,
       }),
     });
 

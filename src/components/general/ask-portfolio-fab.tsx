@@ -8,9 +8,10 @@ import Typography from "@/components/general/typography";
 import { mergeClasses } from "@/lib/utils";
 
 const SUGGESTIONS = [
-  "What AI products have I built?",
-  "Show my mobile experience.",
-  "What companies have I worked for?",
+  "What AI products has Devesh built?",
+  "What is his mobile and Expo experience?",
+  "Which companies has he worked for?",
+  "What is his current stack?",
 ];
 
 type Message = { role: "user" | "assistant"; content: string };

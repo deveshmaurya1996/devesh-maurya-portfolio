@@ -1,27 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import {
-  ArrowUpRight,
-  Boxes,
-  Brain,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { useTheme } from "next-themes";
 
 import { SKILL_FREQUENCY, getTechLogo } from "@/lib/data";
+import { resolveSkillIcon } from "@/lib/skill-icons";
 import Tag from "@/components/data-display/tag";
 import Typography from "@/components/general/typography";
 import Container from "@/components/layout/container";
 import { mergeClasses } from "@/lib/utils";
 
-const FALLBACK_ICONS: Record<string, LucideIcon> = {
-  "AI APIs": Brain,
-  Prisma: Boxes,
-};
-
 const FALLBACK_URLS: Record<string, string> = {
-  "AI APIs": "https://learn.microsoft.com/en-us/azure/ai-services/openai/",
+  "AI APIs": "https://platform.openai.com/docs",
+  Redis: "https://redis.io/",
 };
 
 const FREQUENCY_META: Record<
@@ -52,10 +46,29 @@ function SkillIcon({
   label: string;
   techLabel?: string;
 }) {
-  const tech = techLabel ? getTechLogo(techLabel) : undefined;
-  const Fallback = FALLBACK_ICONS[label];
+  const { resolvedTheme } = useTheme();
+  const spec = resolveSkillIcon(label, techLabel);
 
-  if (tech) {
+  if (spec) {
+    const color =
+      resolvedTheme === "dark" && spec.darkColor
+        ? spec.darkColor
+        : spec.color;
+    return (
+      <Icon
+        icon={spec.icon}
+        width={28}
+        height={28}
+        style={{ color }}
+        className="h-7 w-7 shrink-0"
+        aria-hidden
+      />
+    );
+  }
+
+  const tech = techLabel ? getTechLogo(techLabel) : getTechLogo(label);
+
+  if (tech?.logo) {
     return (
       <span className="relative inline-flex h-7 w-7 shrink-0 items-center justify-center">
         <Image
@@ -79,10 +92,6 @@ function SkillIcon({
         ) : null}
       </span>
     );
-  }
-
-  if (Fallback) {
-    return <Fallback className="h-6 w-6 shrink-0 text-emerald-600" />;
   }
 
   return (
@@ -146,7 +155,7 @@ const SkillsSection = () => {
                 {group.skills.map((skill, si) => {
                   const tech = skill.techLabel
                     ? getTechLogo(skill.techLabel)
-                    : undefined;
+                    : getTechLogo(skill.label);
                   const href = tech?.url ?? FALLBACK_URLS[skill.label];
                   const content = (
                     <>
