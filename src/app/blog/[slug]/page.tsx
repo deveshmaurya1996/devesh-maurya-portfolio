@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 import Container from "@/components/layout/container";
 import Typography from "@/components/general/typography";
 import Link from "@/components/navigation/link";
 import { getBlogPostBody } from "@/components/blog/post-body";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog-data";
-import { ArrowLeft } from "lucide-react";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -28,10 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      images: post.coverImage ? [post.coverImage] : undefined,
     },
     twitter: {
       title: post.title,
       description: post.excerpt,
+      images: post.coverImage ? [post.coverImage] : undefined,
     },
   };
 }
@@ -69,19 +71,40 @@ export default async function BlogPostPage({ params }: Props) {
         </Link>
 
         <header className="flex flex-col gap-3">
-          <time
-            className="text-sm text-gray-500"
-            dateTime={post.publishedAt}
+          <div className="flex flex-wrap items-center gap-3">
+            <time
+              className="text-sm text-gray-500"
+              dateTime={post.publishedAt}
+            >
+              {formatDate(post.publishedAt)}
+            </time>
+            {post.tag ? (
+              <span className="rounded-full bg-gray-900/5 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-gray-600 dark:bg-white/5">
+                {post.tag}
+              </span>
+            ) : null}
+          </div>
+          <Typography
+            variant="h1"
+            className="!text-3xl md:!text-4xl md:!leading-tight"
           >
-            {formatDate(post.publishedAt)}
-          </time>
-          <Typography variant="h1" className="!text-3xl md:!text-4xl md:!leading-tight">
             {post.title}
           </Typography>
           <Typography variant="body1" className="text-gray-600">
             {post.excerpt}
           </Typography>
         </header>
+
+        {post.coverImage ? (
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-gray-100 ring-1 ring-gray-100/80">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={post.coverImage}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        ) : null}
 
         <div>{body}</div>
       </div>

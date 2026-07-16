@@ -98,6 +98,16 @@
   }
 }
 
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 @layer utilities {
   .animate-tilt-shake {
     animation: tilt-shake 0.5s ease-in-out forwards;
@@ -107,5 +117,14 @@
     animation: heartbeat 1.2s ease-in-out infinite;
     transform-origin: center;
   }
+
+  .animate-float-soft {
+    animation: float-soft 5s ease-in-out infinite;
+  }
+}
+
+html,
+body {
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 

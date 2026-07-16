@@ -4,11 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Eye } from "lucide-react";
 
 import Button from "@/components/general/button";
-
-const RESUME_PDF_URL =
-  "https://docs.google.com/document/d/1l6lSa-Ycd-FlBCvXRtRELYzBcXMEiVFo6vqU-xZRH5U/export?format=pdf&attachment=true";
-const RESUME_VIEW_URL =
-  "https://docs.google.com/document/d/1l6lSa-Ycd-FlBCvXRtRELYzBcXMEiVFo6vqU-xZRH5U/edit?usp=sharing";
+import { EXTERNAL_LINKS } from "@/lib/data";
 
 const DownloadCV = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +51,7 @@ const DownloadCV = () => {
       {isOpen ? (
         <div className="absolute right-0 top-full z-40 mt-2 min-w-[220px] rounded-xl border border-gray-100 bg-gray p-2 shadow-lg">
           <a
-            href={RESUME_VIEW_URL}
+            href={EXTERNAL_LINKS.RESUME_VIEW}
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900"

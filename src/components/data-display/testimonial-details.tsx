@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import { TestimonialDetails as TestimonialDetailsProps } from "@/lib/types";
 import Typography from "@/components/general/typography";
-import Card from "@/components/layout/card";
 
 const TestimonialDetails = ({
   personName,
@@ -11,26 +10,26 @@ const TestimonialDetails = ({
   title,
 }: TestimonialDetailsProps) => {
   return (
-    <Card className="mx-auto flex flex-col items-center gap-6 p-8 md:w-2/3 md:p-12 lg:w-1/3">
-      <Image
-        src={personAvatar!}
-        alt={`${personName} avatar`}
-        width={"80"}
-        style={{ borderRadius: 100 }}
-      ></Image>
-      <Typography>&quot;{testimonial}&quot;</Typography>
-      <div className="flex w-full flex-col gap-1">
-        <Typography
-          variant="subtitle"
-          className="w-full text-center font-semibold text-gray-900"
-        >
-          {personName}
-        </Typography>
-        <Typography variant="body3" className="w-full text-center">
-          {title}
-        </Typography>
+    <article className="flex h-full flex-col gap-5 rounded-3xl bg-gradient-to-b from-gray-50/90 to-transparent p-6 ring-1 ring-gray-100/70 dark:from-gray-100/30">
+      <div className="flex items-center gap-3">
+        <Image
+          src={personAvatar!}
+          alt={`${personName} avatar`}
+          width={56}
+          height={56}
+          className="h-14 w-14 rounded-full object-cover"
+        />
+        <div className="min-w-0">
+          <Typography className="truncate font-semibold text-gray-900">
+            {personName}
+          </Typography>
+          <Typography className="text-xs text-gray-500">{title}</Typography>
+        </div>
       </div>
-    </Card>
+      <Typography className="text-sm leading-relaxed text-gray-600">
+        &ldquo;{testimonial}&rdquo;
+      </Typography>
+    </article>
   );
 };
 

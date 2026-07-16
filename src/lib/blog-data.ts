@@ -2,11 +2,22 @@ import type { BlogPost } from "@/lib/types";
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    slug: "building-create-fullstack-app-cli",
-    title: "create-fullstack-app: a CLI that scaffolds stacks I actually use",
-    publishedAt: "2026-04-07",
+    slug: "building-ai-assistant-platform",
+    title: "Building an AI assistant with chat, memory, and voice",
+    publishedAt: "2026-07-10",
+    tag: "AI",
+    coverImage: "/images/blog/ai-assistant-cover.svg",
     excerpt:
-      "Node + TypeScript CLI using Inquirer. Picks your frontend, backend, DB, auth, Docker, then writes the tree. I keep iterating on it. Tagged releases on npm via GitHub Actions.",
+      "How the monorepo is structured for streaming chat, Qdrant memory, multi-agent planning, and a voice pipeline across Expo and Next.js.",
+  },
+  {
+    slug: "building-create-fullstack-app-cli",
+    title: "create-fullstack-app: scaffolding stacks I use at work",
+    publishedAt: "2026-04-07",
+    tag: "Tooling",
+    coverImage: "/images/blog/create-fullstack-cli-cover.png",
+    excerpt:
+      "Dartix CLI built with Inquirer. It asks for frontend, backend, database, auth, and Docker, then writes the project. Releases go to npm through GitHub Actions.",
   },
 ];
 

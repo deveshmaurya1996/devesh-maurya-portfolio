@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="aiGrad" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#064e3b"/>
+      <stop offset="0.5" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#134e4a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#aiGrad)"/>
+  <circle cx="400" cy="200" r="54" stroke="#ecfdf5" stroke-width="4" fill="none"/>
+  <g stroke="#ecfdf5" stroke-width="4" stroke-linecap="round" fill="#ecfdf5">
+    <line x1="400" y1="146" x2="400" y2="118"/>
+    <circle cx="400" cy="104" r="12"/>
+    <line x1="438" y1="162" x2="460" y2="140"/>
+    <circle cx="472" cy="128" r="12"/>
+    <line x1="454" y1="200" x2="482" y2="200"/>
+    <circle cx="496" cy="200" r="12"/>
+    <line x1="438" y1="238" x2="460" y2="260"/>
+    <circle cx="472" cy="272" r="12"/>
+    <line x1="400" y1="254" x2="400" y2="282"/>
+    <circle cx="400" cy="296" r="12"/>
+    <line x1="362" y1="238" x2="340" y2="260"/>
+    <circle cx="328" cy="272" r="12"/>
+    <line x1="346" y1="200" x2="318" y2="200"/>
+    <circle cx="304" cy="200" r="12"/>
+    <line x1="362" y1="162" x2="340" y2="140"/>
+    <circle cx="328" cy="128" r="12"/>
+  </g>
+  <text x="48" y="400" fill="#ecfdf5" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700">AI Assistant Platform</text>
+</svg>

@@ -49,8 +49,8 @@ const ContactSection = () => {
           <Tag label="Get in touch" />
         </div>
         <Typography variant="subtitle" className="max-w-xl text-center">
-          What&apos;s next? Feel free to reach out to me if you are looking for a
-          developer, have a query, or simply want to connect.
+          Open to roles, freelance work, and technical conversations. Reach out
+          by email or phone.
         </Typography>
       </div>
 

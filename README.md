@@ -18,12 +18,25 @@ This project highlights professional experience, selected projects, technical sk
 
 ## Features
 
-- Responsive, modern portfolio UI
-- Project showcase with details
-- Experience and skills sections
-- Contact section and social links
-- Dark mode support
+- Outcome-driven hero with product visual and recruiter CTAs
+- Filterable project explorer + deep case studies
+- Recruiter mode panel (availability, stack, top projects, links)
+- Ask my portfolio (NVIDIA NIM)
+- Open Source spotlight for `create-fullstack-app`
+- Command palette (Ctrl/Cmd + K)
+- Skills by usage frequency, testimonials, dark mode
 - Custom "Hire Me" cursor badge
+
+## Environment
+
+Copy `.env.example` to `.env.local` and set:
+
+```bash
+NVIDIA_API_KEY=nvapi-...
+NVIDIA_MODEL=meta/llama-3.1-8b-instruct
+```
+
+Get an API key at [build.nvidia.com](https://build.nvidia.com). Without the key, the rest of the site works; Ask my portfolio returns a configure message.
 
 ## Project Structure
 

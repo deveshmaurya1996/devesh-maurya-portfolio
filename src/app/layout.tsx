@@ -9,9 +9,9 @@ import HireMeCursor from "@/components/general/hire-me-cursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const title = "Devesh Maurya | Full Stack Developer from India.";
+const title = "Devesh Maurya | Full Stack Engineer";
 const description =
-  "A self-proclaimed developer who specializes in full stack development (React.js & Node.js), India.";
+  "Full Stack Engineer based in Mumbai. React, Next.js, React Native, and Node.js. Experience across web, mobile, and AI product work.";
 const url = "https://devesh-maurya-portfolio.vercel.app/";
 
 export const metadata: Metadata = {
@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   title,
   description,
   keywords: [
-    "Frontend Developer",
+    "Full Stack Engineer",
     "Full Stack Developer",
     "React Developer",
-    "React Native Developer",
     "Next.js Developer",
-    "Android Developer",
+    "React Native Developer",
+    "AI Engineer",
     "Devesh Maurya",
   ],
   creator: "Devesh Maurya",
@@ -69,7 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-gray text-gray-600 antialiased`}
+        className={`${inter.className} bg-gray text-gray-600 antialiased transition-colors duration-300`}
         suppressHydrationWarning
       >
         <Providers>

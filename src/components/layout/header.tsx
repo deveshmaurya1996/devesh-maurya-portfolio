@@ -19,6 +19,7 @@ import Link from "@/components/navigation/link";
 import ThemeSwitcher from "@/components/general/theme-switcher";
 import IconButton from "@/components/general/icon-button";
 import DownloadCV from "@/components/general/download-cv";
+import RecruiterModeTrigger from "@/components/general/recruiter-mode";
 import Typography from "@/components/general/typography";
 
 const Logo = () => (
@@ -64,6 +65,7 @@ const Header = () => {
           <div className="h-6 w-0.5 bg-gray-100"></div>
           <div className="flex items-center gap-4">
             <ThemeSwitcher />
+            <RecruiterModeTrigger className="hidden lg:inline-flex" />
             <DownloadCV />
           </div>
         </div>
@@ -108,6 +110,7 @@ const Header = () => {
                 <Typography>Switch Theme</Typography>
                 <ThemeSwitcher />
               </div>
+              <RecruiterModeTrigger className="w-full" />
               <DownloadCV />
             </div>
           </DrawerContent>

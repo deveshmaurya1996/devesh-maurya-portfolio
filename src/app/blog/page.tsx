@@ -3,13 +3,11 @@ import type { Metadata } from "next";
 import Container from "@/components/layout/container";
 import Typography from "@/components/general/typography";
 import Link from "@/components/navigation/link";
-import Card from "@/components/layout/card";
 import { BLOG_POSTS } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
   title: "Blog | Devesh Maurya",
-  description:
-    "Notes on tools, stacks, and how I ship releases.",
+  description: "Notes on tools, stacks, and how I ship releases.",
 };
 
 function formatDate(iso: string) {
@@ -36,30 +34,56 @@ export default function BlogIndexPage() {
         </Typography>
       </div>
 
-      <ul className="mt-10 flex list-none flex-col gap-6 p-0">
+      <ul className="mt-10 grid list-none gap-6 p-0 md:grid-cols-2">
         {sorted.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`} noCustomization className="block">
-              <Card className="p-6 transition-all hover:ring-2 hover:ring-gray-200 dark:hover:ring-gray-300">
-                <time
-                  className="text-sm text-gray-500"
-                  dateTime={post.publishedAt}
-                >
-                  {formatDate(post.publishedAt)}
-                </time>
+          <li key={post.slug} className="h-full">
+            <Link
+              href={`/blog/${post.slug}`}
+              noCustomization
+              className="group flex h-full flex-col overflow-hidden rounded-2xl bg-gray-50/70 ring-1 ring-gray-100/80 transition hover:ring-emerald-300/40 dark:bg-gray-100/40"
+            >
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
+                {post.coverImage ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={post.coverImage}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800 via-teal-700 to-slate-900" />
+                )}
+              </div>
+              <div className="flex flex-1 flex-col gap-3 p-5">
+                <div className="flex h-5 items-center justify-between gap-2">
+                  <time
+                    className="text-sm leading-none text-gray-500"
+                    dateTime={post.publishedAt}
+                  >
+                    {formatDate(post.publishedAt)}
+                  </time>
+                  {post.tag ? (
+                    <span className="rounded-full bg-gray-900/5 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-gray-600 dark:bg-white/5">
+                      {post.tag}
+                    </span>
+                  ) : null}
+                </div>
                 <Typography
                   variant="h3"
-                  className="mt-2 !text-xl md:!text-2xl"
+                  className="line-clamp-2 min-h-[3.5rem] !text-xl !leading-7 md:min-h-[4rem] md:!text-2xl md:!leading-8"
                 >
                   {post.title}
                 </Typography>
-                <Typography variant="body2" className="mt-3 text-gray-600">
+                <Typography
+                  variant="body2"
+                  className="line-clamp-2 min-h-[2.5rem] text-sm leading-5 text-gray-600"
+                >
                   {post.excerpt}
                 </Typography>
-                <span className="mt-4 inline-block text-sm font-medium text-gray-900 underline-offset-4 hover:underline">
+                <span className="mt-auto pt-1 text-sm font-medium text-gray-900 underline-offset-4 group-hover:underline">
                   Read more →
                 </span>
-              </Card>
+              </div>
             </Link>
           </li>
         ))}
