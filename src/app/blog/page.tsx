@@ -6,8 +6,27 @@ import Link from "@/components/navigation/link";
 import { BLOG_POSTS } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
-  title: "Blog | Devesh Maurya",
-  description: "Notes on tools, stacks, and how I ship releases.",
+  title: "Blog — notes on tooling, AI systems, and shipping",
+  description:
+    "Technical writing by Devesh Maurya on create-fullstack-app, AI assistant platforms, CLIs, and full-stack delivery with React, Next.js, and FastAPI.",
+  keywords: [
+    "Devesh Maurya blog",
+    "create-fullstack-app",
+    "AI assistant",
+    "Next.js",
+    "FastAPI",
+    "full stack engineering",
+  ],
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Blog | Devesh Maurya",
+    description:
+      "Notes on tooling, AI systems, and how I ship full-stack products.",
+    url: "/blog",
+    type: "website",
+  },
 };
 
 function formatDate(iso: string) {

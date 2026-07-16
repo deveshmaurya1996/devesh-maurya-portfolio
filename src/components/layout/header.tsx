@@ -23,7 +23,7 @@ import RecruiterModeTrigger from "@/components/general/recruiter-mode";
 import Typography from "@/components/general/typography";
 
 const Logo = () => (
-  <Typography variant="h3" className="font-bold">
+  <Typography variant="h3" className="font-bold" aria-label="Devesh Maurya home">
     {"<DM />"}
   </Typography>
 );
@@ -51,10 +51,10 @@ const Header = () => {
       )}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between p-4 md:px-8">
-        <Link href="/" noCustomization>
+        <Link href="/" noCustomization aria-label="Devesh Maurya — Home">
           <Logo />
         </Link>
-        <div className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
           <ul className="flex list-none items-center gap-6">
             {NAV_LINKS.map((link, index) => (
               <li key={index}>
@@ -62,18 +62,18 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <div className="h-6 w-0.5 bg-gray-100"></div>
+          <div className="h-6 w-0.5 bg-gray-100" aria-hidden />
           <div className="flex items-center gap-4">
             <ThemeSwitcher />
             <RecruiterModeTrigger className="hidden lg:inline-flex" />
             <DownloadCV />
           </div>
-        </div>
+        </nav>
 
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
           <DrawerTrigger asChild className="flex md:hidden">
-            <IconButton>
-              <Menu />
+            <IconButton aria-label="Open navigation menu">
+              <Menu aria-hidden />
             </IconButton>
           </DrawerTrigger>
           <DrawerContent>
@@ -81,12 +81,12 @@ const Header = () => {
             <div className="flex items-center justify-between border-b border-gray-100 p-4">
               <Logo />
               <DrawerClose asChild>
-                <IconButton>
-                  <X />
+                <IconButton aria-label="Close navigation menu">
+                  <X aria-hidden />
                 </IconButton>
               </DrawerClose>
             </div>
-            <div className="border-b border-gray-100 p-4">
+            <nav className="border-b border-gray-100 p-4" aria-label="Mobile">
               <ul className="flex list-none flex-col gap-4">
                 {NAV_LINKS.map((link, index) => (
                   <li key={index}>
@@ -104,7 +104,7 @@ const Header = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
             <div className="flex flex-col gap-4 p-4">
               <div className="flex items-center justify-between">
                 <Typography>Switch Theme</Typography>

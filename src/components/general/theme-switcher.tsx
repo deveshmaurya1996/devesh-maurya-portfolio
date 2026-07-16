@@ -14,22 +14,23 @@ const ThemeSwitcher = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
+  const label =
+    theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+
   // until the UI is mounted, display a dummy icon
   if (!mounted) {
     return (
-      <IconButton>
-        <Sun />
+      <IconButton aria-label="Toggle color theme" disabled>
+        <Sun aria-hidden />
       </IconButton>
     );
   }
 
   return (
-    <IconButton onClick={toggleTheme}>
-      {theme === 'dark' ? <Sun /> : <MoonStar />}
+    <IconButton onClick={toggleTheme} aria-label={label}>
+      {theme === 'dark' ? <Sun aria-hidden /> : <MoonStar aria-hidden />}
     </IconButton>
   );
 };
 
 export default ThemeSwitcher;
-
-// Ref :: https://www.npmjs.com/package/next-themes#avoid-hydration-mismatch

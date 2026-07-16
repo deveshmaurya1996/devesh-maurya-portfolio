@@ -7,6 +7,7 @@ import Typography from "@/components/general/typography";
 import Link from "@/components/navigation/link";
 import { getBlogPostBody } from "@/components/blog/post-body";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog-data";
+import { buildBlogPostingJsonLd, JsonLd } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -23,14 +24,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Post not found | Devesh Maurya" };
   }
   return {
-    title: `${post.title} | Devesh Maurya`,
+    title: post.title,
     description: post.excerpt,
+    keywords: [
+      "Devesh Maurya",
+      post.title,
+      post.tag,
+      "blog",
+      "full stack",
+    ].filter(Boolean) as string[],
+    authors: [{ name: "Devesh Maurya" }],
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: post.coverImage ? [post.coverImage] : undefined,
+      type: "article",
+      publishedTime: post.publishedAt,
+      url: `/blog/${post.slug}`,
+      images: post.coverImage
+        ? [{ url: post.coverImage, alt: post.title }]
+        : undefined,
     },
     twitter: {
+      card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
       images: post.coverImage ? [post.coverImage] : undefined,
@@ -60,6 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <Container className="!pt-24 md:!pt-28">
+      <JsonLd data={buildBlogPostingJsonLd(post)} />
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
         <Link
           href="/blog"
@@ -100,13 +119,13 @@ export default async function BlogPostPage({ params }: Props) {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={post.coverImage}
-              alt=""
+              alt={post.title}
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
         ) : null}
 
-        <div>{body}</div>
+        <article>{body}</article>
       </div>
     </Container>
   );

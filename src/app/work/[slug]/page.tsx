@@ -11,6 +11,7 @@ import Tag from "@/components/data-display/tag";
 import Link from "@/components/navigation/link";
 import Button from "@/components/general/button";
 import ProjectVisual from "@/components/data-display/project-visual";
+import { buildCaseStudyJsonLd, JsonLd } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -59,9 +60,43 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project not found" };
+
+  const title = `${project.name} case study`;
+  const description = project.overview
+    ? project.overview.slice(0, 160)
+    : project.description;
+  const url = `/work/${project.slug}`;
+  const image =
+    typeof project.previewImage === "string"
+      ? project.previewImage
+      : project.previewImage?.src;
+
   return {
-    title: `${project.name} | Devesh Maurya`,
-    description: project.description,
+    title,
+    description,
+    keywords: [
+      project.name,
+      "Devesh Maurya",
+      "case study",
+      ...project.categories,
+      ...project.technologies.slice(0, 12),
+    ],
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${project.name} | Devesh Maurya`,
+      description,
+      url,
+      type: "article",
+      images: image ? [{ url: image, alt: `${project.name} preview` }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.name} | Devesh Maurya`,
+      description,
+      images: image ? [image] : undefined,
+    },
   };
 }
 
@@ -75,6 +110,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   return (
     <Container className="gap-10 py-16 md:py-24">
+      <JsonLd data={buildCaseStudyJsonLd(project)} />
       <Link
         href="/#work"
         className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900"
