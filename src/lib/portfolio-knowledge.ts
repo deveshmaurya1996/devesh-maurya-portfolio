@@ -142,7 +142,7 @@ Availability: ${RECRUITER_PROFILE.availability}
 Notice period: ${RECRUITER_PROFILE.noticePeriod}
 Years of experience: ${RECRUITER_PROFILE.experience}
 Primary stack: ${RECRUITER_PROFILE.currentStack.join(", ")}
-Trusted by / worked with: ${trustedBy}
+Worked with: ${trustedBy}
 Email: ${RECRUITER_PROFILE.email}
 LinkedIn: ${RECRUITER_PROFILE.linkedIn}
 GitHub: ${RECRUITER_PROFILE.github}

@@ -18,7 +18,8 @@ import LabLamb from "/public/images/LabLambWorks.png";
 import Meet from "/public/images/meet.jpg";
 import Nathan from "/public/images/nathan.jpg";
 import Sreedharan from "/public/images/sreedharan.jpg";
-import Aicade from "/public/images/Aicade.svg";
+import Aicade from "/public/images/logos/logo-aicade.png";
+import AicadeProject from "/public/images/Aicade.svg";
 import BullShark from "/public/images/bullshark_studio_logo.jpg";
 import LandsAuthority from "../../public/images/Landing Screen.png";
 import ThriveOn from "../../public/images/Thriveon.png";
@@ -636,7 +637,7 @@ export const PROJECTS: ProjectDetails[] = [
     description:
       "AI-assisted 2D game builder: React/Vite/Next.js editor frontend plus FastAPI services for generation, asset recommendations, and procedural content into a Phaser runtime.",
     url: "https://create.aicade.io/",
-    previewImage: Aicade,
+    previewImage: AicadeProject,
     technologies: [
       "React",
       "Next.js",

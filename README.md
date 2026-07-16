@@ -1,94 +1,49 @@
-# Devesh Maurya — Portfolio
+# Devesh Maurya
 
-Personal portfolio for recruiters, founders, and collaborators. Built with Next.js 15, React 19, TypeScript, and Tailwind CSS.
+Full Stack Engineer in Mumbai — building web, mobile, and AI products with React, Next.js, React Native, Node.js, FastAPI, and Azure OpenAI.
 
-Live site: [devesh-maurya-portfolio.vercel.app](https://devesh-maurya-portfolio.vercel.app/)
+**Open to opportunities.**
 
-## Highlights
+[Portfolio](https://devesh-maurya-portfolio.vercel.app/) · [Resume](https://docs.google.com/document/d/1l6lSa-Ycd-FlBCvXRtRELYzBcXMEiVFo6vqU-xZRH5U/edit?usp=sharing) · [LinkedIn](https://www.linkedin.com/in/deveshmaurya1996) · [GitHub](https://github.com/deveshmaurya1996)
 
-- Outcome-driven hero with recruiter CTAs
-- Filterable Selected Work + deep case studies (`/work/[slug]`)
-- Recruiter mode panel (availability, stack, top projects, resume links)
-- **Ask my portfolio** chat (NVIDIA NIM) with a live knowledge base from site data
-- Open source spotlight (AI Assistant, create-fullstack-app, Media Bunch, Dartix)
-- Blog / writing section
-- Skills by usage frequency (Iconify / Simple Icons brand marks)
-- Command palette (`Ctrl` / `Cmd` + `K`)
-- Testimonials, dark mode, SEO (JSON-LD, sitemap, robots, manifest)
+## What I do
 
-## Tech stack
+I ship production software across the stack — from React/Next.js frontends and React Native apps to Node.js / FastAPI backends and AI features in real products.
 
-| Area | Stack |
+Recent work includes ThriveOn (Azure OpenAI coaching wizards), Lands Authority, Aicade’s 2D game builder, and Lamima (operations platform).
+
+## Stack
+
+| | |
 | --- | --- |
-| App | Next.js 15 (App Router), React 19, TypeScript |
-| UI | Tailwind CSS, Framer Motion, Radix UI, Lucide, [Iconify](https://iconify.design) + [Simple Icons](https://simpleicons.org) (same pattern as AI Assistant) |
-| Themes | `next-themes` |
-| AI chat | NVIDIA NIM (`/api/ask`) |
+| **Frontend** | React, Next.js, TypeScript, Tailwind CSS, Zustand, TanStack Query |
+| **Backend** | Node.js, Express, FastAPI, NestJS, GraphQL, Prisma |
+| **Data** | PostgreSQL, MongoDB, Redis |
+| **Mobile** | React Native, Expo |
+| **AI** | Azure OpenAI, LLM / API integrations in product flows |
 
-## Getting started
+## Selected work
 
-```bash
-npm install
-cp .env.example .env.local   # if present; or create .env.local manually
-npm run dev
-```
+Case studies live on the site under `/work/[slug]`:
 
-Open [http://localhost:3000](http://localhost:3000).
+- **ThriveOn** — AI coaching wizards on Azure OpenAI
+- **Lands Authority** — government / land management product
+- **Aicade** — AI-assisted 2D game builder
+- **Lamima** — internal ops platform (Next.js, Prisma, NextAuth)
+- **YoChatGPT** and other client / studio builds
 
-### Scripts
+Also open source: AI Assistant Platform, `create-fullstack-app`, Media Bunch, Dartix.
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Development server |
-| `npm run build` | Production build |
-| `npm start` | Serve production build |
-| `npm run lint` | ESLint |
+## About this site
 
-### Environment
+Personal portfolio for recruiters and hiring managers — not a product or npm package.
 
-```bash
-NVIDIA_API_KEY=nvapi-...
-NVIDIA_MODEL=meta/llama-3.1-8b-instruct
-```
+- Recruiter mode (availability, stack, top projects, resume)
+- Selected Work with deep case studies
+- **Ask my portfolio** chat (answers from site data)
+- Skills, experience, writing, and testimonials
 
-Get a key at [build.nvidia.com](https://build.nvidia.com). Without `NVIDIA_API_KEY`, the rest of the site works; Ask my portfolio shows a configure message.
-
-## Project structure
-
-```text
-src/
-  app/                  # Routes: home, blog, work/[slug], api/ask, SEO files
-  components/
-    sections/           # Hero, work, skills, open-source, writing, …
-    general/            # Ask FAB, recruiter mode, theme, command palette
-    data-display/       # Cards, tags, tech/project details
-    layout/             # Header, footer, container
-  lib/
-    data.tsx            # Projects, experience, skills, open source
-    portfolio-knowledge.ts  # System prompt facts for Ask my portfolio
-    recruiter.ts        # Recruiter panel profile
-    skill-icons.ts      # Iconify simple-icons skill mappings
-    seo.tsx             # Metadata helpers + JSON-LD
-public/                 # Images, logos, covers
-```
-
-## Case studies & content
-
-Featured work is defined in `src/lib/data.tsx` (role, overview, FE/BE layers, modules, APIs). Notable projects include Lands Authority, ThriveOn (Azure OpenAI), Aicade, Lamima, and YoChatGPT.
-
-Skills UI uses `@iconify/react` with `simple-icons:…` IDs and brand colors — the same Iconify approach as the AI Assistant `@ai-assistant/icons` package. Only local fallbacks that Simple Icons lacks are kept under `public/images/logos/` (e.g. Zustand).
-
-Ask my portfolio answers from `buildPortfolioKnowledge()` — keep `data.tsx` / blog data accurate so the chat stays truthful.
-
-## Professional snapshot
-
-Full Stack Engineer (Mumbai) — web, mobile, and AI product work.
-
-- **Frontend:** React, Next.js, TypeScript, Tailwind CSS, Zustand, TanStack Query
-- **Backend:** Node.js, Express, FastAPI, NestJS, GraphQL, Prisma
-- **Data:** PostgreSQL, MongoDB, Redis
-- **Mobile:** React Native, Expo
-- **AI:** Azure OpenAI, LLM / API integrations in product flows
+Built with Next.js 15, React 19, TypeScript, and Tailwind CSS.
 
 ## Contact
 
@@ -98,6 +53,6 @@ Full Stack Engineer (Mumbai) — web, mobile, and AI product work.
 - Studio: [dartix.live](https://www.dartix.live/)
 - Phone / WhatsApp: +91-9670551347
 
-## License
+---
 
-Personal portfolio use. Contact me before reusing substantial parts of this project.
+For local development: `npm install` → `npm run dev` → [localhost:3000](http://localhost:3000). Optional `NVIDIA_API_KEY` in `.env.local` enables Ask my portfolio.

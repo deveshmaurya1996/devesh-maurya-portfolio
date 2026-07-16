@@ -10,7 +10,7 @@ const TrustedBySection = () => {
   return (
     <Container className="bg-gray-50 py-12 md:py-16" id="trusted-by">
       <div className="flex flex-col items-center gap-6">
-        <Tag label="Trusted by" />
+        <Tag label="Worked with" />
         <Typography variant="subtitle" className="max-w-xl text-center">
           Companies where I have delivered production software
         </Typography>
