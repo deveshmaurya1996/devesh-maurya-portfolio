@@ -2,7 +2,32 @@ import { NextRequest, NextResponse } from "next/server";
 import { buildPortfolioKnowledge } from "@/lib/portfolio-knowledge";
 
 const NVIDIA_BASE = "https://integrate.api.nvidia.com/v1";
-const DEFAULT_MODEL = "meta/llama-3.1-8b-instruct";
+
+// Tried in order. Skip to next on EOL / unavailable / transient errors.
+const DEFAULT_MODELS = [
+  "mistralai/mistral-nemotron",
+  "nvidia/nemotron-3.5-lightning-30b-a3b",
+];
+
+function resolveModels(): string[] {
+  const fromList = process.env.NVIDIA_MODELS?.split(",")
+    .map((m) => m.trim())
+    .filter(Boolean);
+  const preferred = process.env.NVIDIA_MODEL?.trim();
+  const ordered = [
+    ...(fromList?.length ? fromList : []),
+    ...(preferred ? [preferred] : []),
+    ...DEFAULT_MODELS,
+  ];
+  return Array.from(new Set(ordered));
+}
+
+function shouldFailover(status: number, body: string): boolean {
+  if ([404, 408, 410, 429, 500, 502, 503, 504].includes(status)) return true;
+  return /end of life|no longer available|not found|model.*(unavailable|deprecated)/i.test(
+    body
+  );
+}
 
 export async function POST(request: NextRequest) {
   const apiKey = process.env.NVIDIA_API_KEY;
@@ -30,7 +55,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Message is required" }, { status: 400 });
   }
 
-  const model = process.env.NVIDIA_MODEL || DEFAULT_MODEL;
+  const models = resolveModels();
   const knowledge = buildPortfolioKnowledge();
 
   const messages = [
@@ -48,38 +73,81 @@ Rules: use only the knowledge above; third person about Devesh; be specific with
     { role: "user", content: message },
   ];
 
-  try {
-    const response = await fetch(`${NVIDIA_BASE}/chat/completions`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        model,
-        messages,
-        temperature: 0.2,
-        max_tokens: 768,
-        top_p: 0.85,
-      }),
-    });
+  const failures: string[] = [];
 
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error("NVIDIA API error:", response.status, errText);
-      return NextResponse.json(
-        { error: "Failed to get a response from NVIDIA NIM." },
-        { status: 502 }
-      );
+  try {
+    for (const model of models) {
+      let response: Response;
+      try {
+        response = await fetch(`${NVIDIA_BASE}/chat/completions`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            model,
+            messages,
+            temperature: 0.2,
+            max_tokens: 768,
+            top_p: 0.85,
+          }),
+        });
+      } catch (err) {
+        console.error(`NVIDIA fetch failed for ${model}:`, err);
+        failures.push(`${model}: network error`);
+        continue;
+      }
+
+      if (!response.ok) {
+        const errText = await response.text();
+        console.error("NVIDIA API error:", model, response.status, errText);
+        failures.push(`${model}: ${response.status}`);
+
+        // Auth is shared across models — no point trying the rest.
+        if (response.status === 401 || response.status === 403) {
+          return NextResponse.json(
+            { error: "NVIDIA API key was rejected." },
+            { status: 502 }
+          );
+        }
+
+        if (shouldFailover(response.status, errText)) continue;
+
+        return NextResponse.json(
+          { error: "Failed to get a response from NVIDIA NIM." },
+          { status: 502 }
+        );
+      }
+
+      const data = await response.json();
+      const answer =
+        data?.choices?.[0]?.message?.content?.trim() ||
+        data?.choices?.[0]?.message?.reasoning_content?.trim();
+
+      if (!answer) {
+        failures.push(`${model}: empty response`);
+        continue;
+      }
+
+      if (failures.length) {
+        console.info(
+          `NVIDIA failover: used ${model} after trying ${failures.join(" → ")}`
+        );
+      }
+
+      return NextResponse.json({ answer, configured: true, model });
     }
 
-    const data = await response.json();
-    const answer =
-      data?.choices?.[0]?.message?.content?.trim() ||
-      "I could not generate a response. Please try again.";
-
-    return NextResponse.json({ answer, configured: true });
+    console.error("NVIDIA all models failed:", failures.join(" → "));
+    return NextResponse.json(
+      {
+        error:
+          "All NVIDIA NIM models failed. Update NVIDIA_MODEL / NVIDIA_MODELS.",
+      },
+      { status: 502 }
+    );
   } catch (error) {
     console.error("Ask API error:", error);
     return NextResponse.json(
