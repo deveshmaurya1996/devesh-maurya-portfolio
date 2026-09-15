@@ -51,25 +51,42 @@ export default function AskPortfolioFab() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: trimmed, history: messages }),
       });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.error || "Could not get an answer.");
+      const raw = await res.text();
+      let data: { answer?: string; error?: string } = {};
+      try {
+        data = raw ? JSON.parse(raw) : {};
+      } catch {
+        const timedOut =
+          res.status === 504 ||
+          /FUNCTION_INVOCATION_TIMEOUT|timed?\s*out/i.test(raw);
+        const msg = timedOut
+          ? "Server timed out — try again."
+          : "Could not get an answer. Please try again.";
+        setError(msg);
         setMessages([
           ...nextMessages,
-          {
-            role: "assistant",
-            content:
-              data.error ||
-              "Ask my portfolio needs NVIDIA_API_KEY on the server.",
-          },
+          { role: "assistant", content: msg },
+        ]);
+        return;
+      }
+
+      if (!res.ok) {
+        const msg =
+          data.error ||
+          (res.status === 504
+            ? "Server timed out — try again."
+            : "Could not get an answer.");
+        setError(msg);
+        setMessages([
+          ...nextMessages,
+          { role: "assistant", content: msg },
         ]);
         return;
       }
 
       setMessages([
         ...nextMessages,
-        { role: "assistant", content: data.answer },
+        { role: "assistant", content: data.answer || "No answer returned." },
       ]);
     } catch {
       setError("Network error. Please try again.");
