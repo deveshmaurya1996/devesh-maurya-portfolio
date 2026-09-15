@@ -70,24 +70,21 @@ export default function AskPortfolioFab() {
         return;
       }
 
-      if (!res.ok) {
-        const msg =
-          data.error ||
-          (res.status === 504
-            ? "Server timed out — try again."
-            : "Could not get an answer.");
-        setError(msg);
+      if (data.answer?.trim()) {
         setMessages([
           ...nextMessages,
-          { role: "assistant", content: msg },
+          { role: "assistant", content: data.answer.trim() },
         ]);
         return;
       }
 
-      setMessages([
-        ...nextMessages,
-        { role: "assistant", content: data.answer || "No answer returned." },
-      ]);
+      const msg =
+        data.error ||
+        (res.status === 504
+          ? "Server timed out — try again."
+          : "Could not get an answer.");
+      setError(msg);
+      setMessages([...nextMessages, { role: "assistant", content: msg }]);
     } catch {
       setError("Network error. Please try again.");
     } finally {
