@@ -6,8 +6,14 @@ export const maxDuration = 60;
 
 const NVIDIA_BASE = "https://integrate.api.nvidia.com/v1";
 const NIM_TIMEOUT_MS = 2_500;
+const MODELS_LOOKUP_MS = 800;
 const MAX_TOKENS = 180;
-const DEFAULT_MODELS = ["mistralai/mistral-nemotron"];
+
+/** Preferred chat models — tried in order among ones currently listed by NIM. */
+const CANDIDATE_MODELS = [
+  "mistralai/mistral-nemotron",
+  "nvidia/nemotron-3.5-lightning-30b-a3b",
+];
 
 const EOL_MODELS = new Set([
   "meta/llama-3.1-8b-instruct",
@@ -17,17 +23,32 @@ const EOL_MODELS = new Set([
   "meta/llama-3.3-70b-instruct",
 ]);
 
-function resolveModels(): string[] {
-  const fromList = process.env.NVIDIA_MODELS?.split(",")
-    .map((m) => m.trim())
-    .filter(Boolean);
-  const preferred = process.env.NVIDIA_MODEL?.trim();
-  const ordered = [
-    ...(fromList?.length ? fromList : []),
-    ...(preferred ? [preferred] : []),
-    ...DEFAULT_MODELS,
-  ].filter((m) => !EOL_MODELS.has(m));
-  return Array.from(new Set(ordered));
+/** Pick live models from NIM catalog; fall back to built-in candidates. */
+async function resolveModels(apiKey: string): Promise<string[]> {
+  const fallback = CANDIDATE_MODELS.filter((m) => !EOL_MODELS.has(m));
+
+  try {
+    const res = await fetch(`${NVIDIA_BASE}/models`, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        Accept: "application/json",
+      },
+      signal: AbortSignal.timeout(MODELS_LOOKUP_MS),
+    });
+    if (!res.ok) return fallback;
+
+    const data = await res.json();
+    const available = new Set(
+      (data?.data ?? [])
+        .map((m: { id?: string }) => m.id)
+        .filter((id: unknown): id is string => typeof id === "string")
+    );
+
+    const live = fallback.filter((m) => available.has(m));
+    return live.length ? live : fallback;
+  } catch {
+    return fallback;
+  }
 }
 
 async function tryNimAnswer(
@@ -112,7 +133,7 @@ export async function POST(request: NextRequest) {
     });
   }
 
-  const models = resolveModels();
+  const models = await resolveModels(apiKey);
   for (const model of models) {
     const nimAnswer = await tryNimAnswer(apiKey, model, message, history);
     if (nimAnswer) {
