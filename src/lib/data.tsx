@@ -51,6 +51,10 @@ export const EXTERNAL_LINKS = {
     "https://www.npmjs.com/package/@dartix-software-solutions/create-fullstack-app",
   CREATE_FULLSTACK_GITHUB:
     "https://github.com/deveshmaurya1996/create-fullstack-app",
+  AI_GATE_NPM:
+    "https://www.npmjs.com/package/@dartix-software-solutions/ai-gate",
+  AI_GATE_GITHUB: "https://github.com/deveshmaurya1996/ai-gate",
+  AI_GATE_LIVE: "https://aigate.dartix.live",
   AI_ASSISTANT_GITHUB: "https://github.com/deveshmaurya1996/ai-assistant",
   MEDIA_BUNCH_GITHUB: "https://github.com/deveshmaurya1996/Media_Bunch_Frontend",
   MEDIA_BUNCH_LIVE: "https://media-bunch-frontend.vercel.app",
@@ -159,6 +163,25 @@ export const HOW_I_BUILD: HowIBuildPrinciple[] = [
 
 export const OPEN_SOURCE_TOOLS: OpenSourceTool[] = [
   {
+    name: "AI Gate",
+    brand: "Dartix",
+    tagline: "One API. Every AI.",
+    description:
+      "Unified AI gateway with project API keys, free-provider routing and failover, usage limits, and encrypted premium credentials. Official TypeScript client published as @dartix-software-solutions/ai-gate. Chat, streaming SSE, and image generation across Gemini, NVIDIA, OpenRouter, Pollinations, Groq, OpenAI, Anthropic, and more.",
+    installCommand: "npm i @dartix-software-solutions/ai-gate",
+    npmUrl: EXTERNAL_LINKS.AI_GATE_NPM,
+    githubUrl: EXTERNAL_LINKS.AI_GATE_GITHUB,
+    websiteUrl: EXTERNAL_LINKS.AI_GATE_LIVE,
+    blogSlug: "launching-ai-gate",
+    coverImage: "/images/blog/ai-gate-cover.png",
+    highlights: [
+      "One key for chat and image models",
+      "Routing + failover across providers",
+      "Dashboard at aigate.dartix.live",
+      "npm SDK @dartix-software-solutions/ai-gate",
+    ],
+  },
+  {
     name: "AI Assistant Platform",
     brand: "Open Source",
     tagline: "Open source assistant with chat, memory, and voice",
@@ -214,12 +237,12 @@ export const OPEN_SOURCE_TOOLS: OpenSourceTool[] = [
     brand: "Dartix",
     tagline: "From Vision to Product",
     description:
-      "Software studio founded by Devesh Maurya in Mumbai. Dartix builds web apps, mobile apps, backend APIs, AI solutions, and digital products—plus free browser tools on dartix.live for image editing, AI image studio, QR, voice, and code formatting.",
+      "Software studio founded by Devesh Maurya in Mumbai. Dartix builds web apps, mobile apps, backend APIs, AI products such as AI Gate (aigate.dartix.live), and free browser tools on dartix.live for image editing, AI image studio, QR, voice, and code formatting.",
     websiteUrl: EXTERNAL_LINKS.DARTIX,
     coverImage: "/images/tools/dartix-logo.png",
     highlights: [
       "Custom software, cloud, and AI delivery",
-      "Web, mobile, and backend systems",
+      "AI Gate — unified multi-provider API",
       "Free tools at dartix.live/tools",
       "Client-first, result-driven process",
     ],

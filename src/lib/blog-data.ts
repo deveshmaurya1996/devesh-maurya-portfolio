@@ -2,6 +2,15 @@ import type { BlogPost } from "@/lib/types";
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "launching-ai-gate",
+    title: "AI Gate: one API for chat and image models across providers",
+    publishedAt: "2026-09-21",
+    tag: "AI",
+    coverImage: "/images/blog/ai-gate-cover.png",
+    excerpt:
+      "Dartix shipped AI Gate — project keys, free-provider routing with failover, usage limits, and an official TypeScript SDK on npm. Live at aigate.dartix.live.",
+  },
+  {
     slug: "building-ai-assistant-platform",
     title: "Building an AI assistant with chat, memory, and voice",
     publishedAt: "2026-07-10",

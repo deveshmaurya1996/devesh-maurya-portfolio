@@ -199,6 +199,8 @@ export function answerFromPortfolio(question: string): string {
       "cli",
       "dartix",
       "create-fullstack",
+      "ai-gate",
+      "ai gate",
     ])
   ) {
     return answerOpenSource();

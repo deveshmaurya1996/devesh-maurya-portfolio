@@ -19,6 +19,12 @@ const PALETTES: Record<string, { from: string; via: string; to: string; accent: 
     to: "#172554",
     accent: "#93c5fd",
   },
+  "ai-gate": {
+    from: "#0e7490",
+    via: "#155e75",
+    to: "#083344",
+    accent: "#67e8f9",
+  },
   "ai-assistant": {
     from: "#065f46",
     via: "#064e3b",

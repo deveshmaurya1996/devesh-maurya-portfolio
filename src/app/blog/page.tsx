@@ -8,9 +8,10 @@ import { BLOG_POSTS } from "@/lib/blog-data";
 export const metadata: Metadata = {
   title: "Blog — notes on tooling, AI systems, and shipping",
   description:
-    "Technical writing by Devesh Maurya on create-fullstack-app, AI assistant platforms, CLIs, and full-stack delivery with React, Next.js, and FastAPI.",
+    "Technical writing by Devesh Maurya on AI Gate, create-fullstack-app, AI assistant platforms, CLIs, and full-stack delivery with React, Next.js, and FastAPI.",
   keywords: [
     "Devesh Maurya blog",
+    "AI Gate",
     "create-fullstack-app",
     "AI assistant",
     "Next.js",
