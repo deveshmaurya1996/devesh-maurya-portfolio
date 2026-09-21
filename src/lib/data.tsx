@@ -217,6 +217,24 @@ export const OPEN_SOURCE_TOOLS: OpenSourceTool[] = [
     ],
   },
   {
+    name: "AI Gate",
+    brand: "Dartix",
+    tagline: "One API key for chat and image models across providers",
+    description:
+      "Official TypeScript / JavaScript client for AI Gate — chat, streaming SSE, and image generation across Gemini, NVIDIA, OpenRouter, Pollinations, Groq, OpenAI, Anthropic, and more. Published as @dartix-software-solutions/ai-gate.",
+    installCommand: "npm i @dartix-software-solutions/ai-gate",
+    npmUrl: EXTERNAL_LINKS.AI_GATE_NPM,
+    githubUrl: EXTERNAL_LINKS.AI_GATE_GITHUB,
+    websiteUrl: EXTERNAL_LINKS.AI_GATE_LIVE,
+    coverImage: "/images/tools/ai-gate.png",
+    highlights: [
+      "Chat generation with context",
+      "Token streaming over SSE",
+      "Text-to-image (URL or data URI)",
+      "Single client, many providers",
+    ],
+  },
+  {
     name: "Media Bunch",
     brand: "Dartix",
     tagline: "Cross-post and schedule social content from one place",

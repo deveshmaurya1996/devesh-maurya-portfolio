@@ -162,7 +162,7 @@ const OpenSourceSection = () => {
                 {tool.description}
               </Typography>
               {tool.installCommand ? (
-                <code className="mt-1 block w-full whitespace-pre-wrap break-all rounded-xl bg-gray-950 px-3 py-2.5 font-mono text-[11px] leading-relaxed text-emerald-300">
+                <code className="mt-1 block w-full whitespace-pre-wrap break-all rounded-xl bg-white px-3 py-2.5 font-mono text-[11px] leading-relaxed text-black ring-1 ring-gray-200">
                   {tool.installCommand}
                 </code>
               ) : null}
@@ -211,7 +211,7 @@ const OpenSourceSection = () => {
                   {active.description}
                 </Typography>
                 {active.installCommand ? (
-                  <code className="block whitespace-pre-wrap break-all rounded-xl bg-black/50 px-3 py-2.5 font-mono text-[11px] leading-relaxed text-emerald-300 ring-1 ring-white/10">
+                  <code className="block whitespace-pre-wrap break-all rounded-xl bg-white px-3 py-2.5 font-mono text-[11px] leading-relaxed text-black ring-1 ring-white/20">
                     {active.installCommand}
                   </code>
                 ) : null}
