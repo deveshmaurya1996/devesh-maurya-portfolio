@@ -364,7 +364,8 @@ export const EXPERIENCES: ExperienceDetails[] = [
     companyUrl: "https://bullshark.studio/",
     position: "Full Stack Engineer",
     startDate: new Date(2025, 8),
-    currentlyWorkHere: true,
+    endDate: new Date(2026, 6, 19),
+    currentlyWorkHere: false,
     summary: [
       "Building full-stack solutions with React, Next.js, Node.js, Expo, and Azure OpenAI (ThriveOn wizards).",
       "Shipping cross-platform mobile apps with high performance on iOS and Android.",
